@@ -113,3 +113,15 @@
 - Veri aktarımı her zaman yukarıdan aşşağıya gerçekleşir
 - Component'lar prop'lar olmadan statik içeriği ekrana basar
 - React'da component'ların içeriiklerinin dinamik hale gelmesi için propları kullanırız
+
+# React Virtual DOM ?
+
+- Virtual DOM (Sanal DOM), react'ın yüksek perfonslı arayüzler oluşturmasını saplayan bir tekniktir. Gerçel DOM üzeründe doğrudan işlem yapmak yerine, sanal kopyasını bellekte tutat ve değişiklikleri önce bu sanal yapı üzerinde uygular. Ardından minimum sayıda gerçek dom güncellemesi yapar.
+
+### Neden VDOM Kullanılır ?
+
+- Gerçek DOM üzerinden yapılan işlemler yavaştır. Sayfadaki en küçük bir dğeişiklik bile ağaç yapısının yeniden render olmasında neden olabilir. Virtual DOM bu sorunu çözer:
+
+1. **Perfromansı Arttır**
+2. **Gereksiz DOM Manipülasyonlarını Önler**
+3. **Daha iyi kullanıcı deneyimi sağlar**

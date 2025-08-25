@@ -2,9 +2,12 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Card from "./components/card";
 import Form from "./components/form";
+import Button from "./components/button";
 
 function App() {
   const products = ["Telefon", "Tablet", "Bilgisayar", "T-Shirt", "Atlet", "Forma", "Mouse", "Klavye"];
+
+  console.dir(document);
 
   return (
     <div className="app">
@@ -17,14 +20,12 @@ function App() {
         <Form />
 
         <section>
-          {/* {products.map((product, index) => (
-            <Card key={index} />
-          ))} */}
+          {products.map((product, index) => (
+            <Card key={index} name={product} />
+          ))}
 
-          <Card name="Telefon" stock={10} />
-          <Card name="Bilgisayar" stock={0} />
-          <Card name="Tablet" stock={6} />
-          <Card name="Mouse" stock={0} />
+          <Button metin="Gönder" renk="red" />
+          <Button metin="Kaydet" renk="aqua" />
         </section>
       </main>
 

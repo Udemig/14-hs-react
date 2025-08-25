@@ -80,3 +80,10 @@ footer {
 form {
   margin-bottom: 20px;
 }
+
+main button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 17px;
+}

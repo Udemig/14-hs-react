@@ -1,6 +1,5 @@
 // Component'ı kullanırken gönderdiğimiz proplara fonksiyonun parametre bölümünden erişiriz
 function Card(props) {
-  console.log(props);
   const campaign = true;
 
   return (
