@@ -64,6 +64,20 @@ class ClassComp extends React.Component {
 
 - State yapısını fonksiyonel component'larda kullanmamızı sağlar
 
+- React'da arayüzde değişme sebep olucak bütün veirler state'de tutulur
+
+- useState parametre olarak tutucağımız verinin başlangıç değerini alır (initialState)
+- useState fonksiyonun çağırıca geriye dizi içerisinde 2 veri döndürür.
+- [stateDegeri, stateGüncellemeFonksiyonu] return eder
+- bu veriye ve methoda daha rahat erişebilmek için array destructuring yöntemi kullanırız
+
+- State'in değerini her güncellediğimizde gerçekleşen güncellemenin arayüze yansıması için component otomatik olarak yeniden render olur
+
+## useEffect
+
+- Component'ın yaşam döngüsünü fonksiyonel component'larda izlememizi sağlar
+- componentDidMount, componentDidUpdate, componentWillUnmount methodlarının görevini üstlenir
+
 # Lifecycle Methods (Yaşam Döngüsü Methodları)
 
 - Lifecycle methods, bir component'ın oluşum, güncellenme, kaldırılma süreçlerini yönetmek için kullanılan özel methodlardır.

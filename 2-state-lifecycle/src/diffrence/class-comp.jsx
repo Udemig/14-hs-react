@@ -16,6 +16,24 @@ class ClassComp extends React.Component {
     };
   }
 
+  // component ekrana geldiği anda çalışır
+  // örn: kullanıcının sayfaya girdiği anda api'dan ürün verilerini çekip listelemek istiyorsak bunu componentDidMount anında yaparız
+  componentDidMount() {
+    console.log("componentDidMount çalıştı");
+  }
+
+  // component güncellendiği anda (state/prop değişimi) çalışır
+  // örn: kullanıcı pagination üzerinden sayfa state'ini her güncellediğinde güncel sayfanın verilerini api'dan almak için kullanılabilir
+  componentDidUpdate() {
+    console.log("componentDidUpdate çalıştı", this.state.count);
+  }
+
+  // component ekrandan ayrılmadan hemen önce çalışır
+  // genellikle temizlik (timer iptali, abonelik durdurma) için kullanılır
+  componentWillUnmount() {
+    console.log("componentWillUnmount çalıştı");
+  }
+
   render() {
     return (
       <div>
