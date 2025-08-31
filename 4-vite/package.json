@@ -5,11 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "json-server --watch db.json --port 4000",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.11.0",
+    "json-server": "^0.17.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

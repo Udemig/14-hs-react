@@ -1,31 +1,50 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useEffect, useState } from "react";
+import Form from "./components/Form";
+import api from "./api/axios";
+import ListItem from "./components/ListItem";
 
-function App() {
-  const [count, setCount] = useState(0);
+const App = () => {
+  // ekrana basılacak todo'ları tuttuğumuz state
+  const [todos, setTodos] = useState([]);
+
+  // component ekrana gelme anında:
+  useEffect(() => {
+    // api'a gönderilecek parametreleri ayarla
+    const params = { _sort: "date", _order: "desc" };
+
+    // api'dan todo verilerini al (axios) ve state'e aktar
+    api.get("/todos", { params }).then((res) => setTodos(res.data));
+  }, []);
+
+  // state'e yeni todoyu ekleyicek fonksiyon
+  const addTodo = (newTodo) => {
+    setTodos([newTodo, ...todos]);
+  };
+
+  // state'den todoyu kaldır
+  const deleteTodo = (deleteId) => {
+    // parametre olarak gelen id'li todo'yu diziden kaldır
+    const filtredTodos = todos.filter((todo) => todo.id !== deleteId);
+    // state'i güncelle
+    setTodos(filtredTodos);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-container">
+      <header>
+        <h1>TODO APP</h1>
+        <p>Pratik için basit CRUD uygulaması</p>
+      </header>
+
+      <Form addTodo={addTodo} />
+
+      <div className="list">
+        {todos.map((todo) => (
+          <ListItem key={todo.id} todo={todo} deleteTodo={deleteTodo} />
+        ))}
       </div>
-      <h1>Vite + Reactqwe 123123</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    </div>
   );
-}
+};
 
 export default App;

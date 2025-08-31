@@ -1,0 +1,46 @@
+{
+  "todos": [
+    {
+      "id": "ca4f9e4d-5e6e-4f35-ac96-ab9b209b1c3e",
+      "title": "React Projesi Yap",
+      "category": "günlük",
+      "date": 1729370471418
+    },
+    {
+      "id": "e33c23b8-43e6-4d9f-8749-12a8caf0efc6",
+      "title": "Alışveriş Listesi Hazırla",
+      "category": "alışveriş",
+      "date": 1751748071418
+    },
+    {
+      "id": "48f2806f-7b8d-45e0-8992-bd919a301daf",
+      "title": "Spor Salonu Kaydı Yap",
+      "category": "spor",
+      "date": 1725396071418
+    },
+    {
+      "id": "f68f8df3-7c72-4792-946e-ab44751c9f90",
+      "title": "JavaScript Çalış",
+      "category": "öğrenme",
+      "date": 1735072871418
+    },
+    {
+      "id": "c8c4aed4-6a80-4d20-8df2-be4bb7e7524c",
+      "title": "Arkadaşlarla Buluş",
+      "category": "sosyal",
+      "date": 1735936871418
+    },
+    {
+      "id": "85c59871-4fa9-4a46-b472-31974f1c431e",
+      "title": "Blog Yazısı Yaz",
+      "category": "iş",
+      "date": 1731616871418
+    },
+    {
+      "id": "d8d85cd3-361d-46a9-bcc3-8524e56760db",
+      "title": "Film İzle",
+      "category": "eğlence",
+      "date": 1752266471418
+    }
+  ]
+}
