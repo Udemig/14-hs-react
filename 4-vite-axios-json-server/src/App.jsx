@@ -21,12 +21,20 @@ const App = () => {
     setTodos([newTodo, ...todos]);
   };
 
-  // state'den todoyu kaldır
+  // state'den todoyu kaldıran fonksiyon
   const deleteTodo = (deleteId) => {
     // parametre olarak gelen id'li todo'yu diziden kaldır
     const filtredTodos = todos.filter((todo) => todo.id !== deleteId);
     // state'i güncelle
     setTodos(filtredTodos);
+  };
+
+  // state'de tutulan todo'yu güncelleyicek fonksiyon
+  const updateTodo = (id, updateData) => {
+    const updatedTodos = 
+       todos.map((todo) => (todo.id === id ? updateData : todo));
+
+    setTodos(updatedTodos);
   };
 
   return (
@@ -40,7 +48,7 @@ const App = () => {
 
       <div className="list">
         {todos.map((todo) => (
-          <ListItem key={todo.id} todo={todo} deleteTodo={deleteTodo} />
+          <ListItem key={todo.id} todo={todo} deleteTodo={deleteTodo} updateTodo={updateTodo} />
         ))}
       </div>
     </div>

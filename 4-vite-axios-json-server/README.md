@@ -91,3 +91,13 @@ fetch(`http://localhost:4000/todos/${todo.id}`, { method: "DELETE" });
 // axios
 api.delete(`/todos/${todo.id}`);
 ```
+
+- **UPDATE**
+
+```jsx
+// fetch
+fetch("http://localhost:4000/todos/id", { method: "PATCH", body: JSON.stringify(updateData) });
+
+// axios
+api.patch("/todos/id", updateData);
+```

@@ -1,0 +1,114 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "Kayıp Zamanın İzinde",
+      "author": "Ahmet Turgut",
+      "image": "https://picsum.photos/seed/1/900",
+      "year": 2018,
+      "page": 432,
+      "description": "Bir adamın geçmişe yolculuğu ve hatıralarını yeniden keşfetme çabası.",
+      "price": 89.9,
+      "category": "roman"
+    },
+    {
+      "id": "2",
+      "title": "Yalnızlıklar Bahçesi",
+      "author": "Zeynep Karaca",
+      "image": "https://picsum.photos/seed/2/900",
+      "year": 2020,
+      "page": 276,
+      "description": "Küçük bir kasabada büyüyen bir çocuğun gözünden dünyayı anlatan dokunaklı bir hikâye.",
+      "price": 64.5,
+      "category": "hikaye"
+    },
+    {
+      "id": "3",
+      "title": "Gece ve Sis",
+      "author": "Mehmet Ali Sönmez",
+      "image": "https://picsum.photos/seed/3/900",
+      "year": 2015,
+      "page": 312,
+      "description": "Bir savaşın gölgesinde geçen sürükleyici ve duygusal bir anlatı.",
+      "price": 74.9,
+      "category": "roman"
+    },
+    {
+      "id": "4",
+      "title": "Kırık Saatler",
+      "author": "Elif Gürkan",
+      "image": "https://picsum.photos/seed/4/900",
+      "year": 2023,
+      "page": 198,
+      "description": "Zamanın insanlar üzerindeki etkisini anlatan kısa ama derinlikli öyküler.",
+      "price": 59.95,
+      "category": "hikaye"
+    },
+    {
+      "id": "5",
+      "title": "Rüzgarla Gelen",
+      "author": "Baran Demir",
+      "image": "https://picsum.photos/seed/5/900",
+      "year": 2019,
+      "page": 385,
+      "description": "Hayallerinin peşinden koşan bir gencin ilham verici serüveni.",
+      "price": 79.0,
+      "category": "roman"
+    },
+    {
+      "id": "6",
+      "title": "Sessizlik Çığlığı",
+      "author": "İrem Yıldız",
+      "image": "https://picsum.photos/seed/6/900",
+      "year": 2021,
+      "page": 245,
+      "description": "Toplumun görmezden geldiği hayatların iç dünyasına bir pencere.",
+      "price": 68.25,
+      "category": "roman"
+    },
+    {
+      "id": "7",
+      "title": "Kum Saati",
+      "author": "Ali Rıza Kaya",
+      "image": "https://picsum.photos/seed/7/900",
+      "year": 2017,
+      "page": 330,
+      "description": "Zamanla yarışan bir aşkın ve pişmanlıkların hikâyesi.",
+      "price": 72.4,
+      "category": "roman"
+    },
+    {
+      "id": "8",
+      "title": "Pencere Kenarı",
+      "author": "Selin Akar",
+      "image": "https://picsum.photos/seed/8/900",
+      "year": 2016,
+      "page": 154,
+      "description": "Hayatın küçük detaylarını anlatan kısa hikâyeler koleksiyonu.",
+      "price": 51.9,
+      "category": "hikaye"
+    },
+    {
+      "id": "9",
+      "title": "Ağaçların Fısıltısı",
+      "author": "Yusuf Erdem",
+      "image": "https://picsum.photos/seed/9/900",
+      "year": 2022,
+      "page": 288,
+      "description": "Doğayla iç içe bir yaşamın insan ruhuna etkileri.",
+      "price": 69.0,
+      "category": "roman"
+    },
+    {
+      "id": "10",
+      "title": "Karanlıkta Işık",
+      "author": "Merve Soylu",
+      "image": "https://picsum.photos/seed/10/900",
+      "year": 2019,
+      "page": 223,
+      "description": "Umut dolu öykülerle karanlık dönemlerin içinden çıkış yolları.",
+      "price": 63.5,
+      "category": "hikaye"
+    }
+  ]
+}

@@ -171,3 +171,38 @@ header {
     }
   }
 }
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .edit-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+
+  input,
+  select {
+    padding: 5px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:nth-child(1) {
+      background: #27ae60;
+      color: white;
+    }
+  }
+}
