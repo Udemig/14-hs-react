@@ -1,33 +1,37 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Category from "./pages/Category";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Detail from "./pages/Detail";
+import NotFound from "./pages/NotFound";
+import Novel from "./pages/Novel";
+import Story from "./pages/Story";
+import Layout from "./components/Layout";
+
+// projedeki route'ları tanımla
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Home />, index: true },
+      { path: "/ürünler", element: <Products /> },
+      { path: "/detay/:bookId", element: <Detail /> },
+      {
+        path: "/kategori",
+        element: <Category />,
+        children: [
+          { path: "hikaye", element: <Story /> },
+          { path: "roman", element: <Novel /> },
+        ],
+      },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+]);
 
 const App = () => {
-  return (
-    // BrowserRouter: Uygulamanın router (yönlendirme) sistemini başlatır.
-    <BrowserRouter>
-      <div className="page">
-        <Header />
-
-        <main>
-          {/* Routes: Tüm route bileşenlerini kapsar, her url değiştiğinde uygun route'u bulup gösterir. Sadece ilk işleşen route'u gösterir */}
-          <Routes>
-            {/* Route: bir url ile eşleştiğinde hangi bileşnin gösterileceğini belirler */}
-            <Route path="/" element={<Home />} />
-            <Route path="/ürünler" element={<Products />} />
-            <Route path="/kategori" element={<Category />} />
-            <Route path="/detay/:bookId" element={<Detail />} />
-          </Routes>
-        </main>
-
-        <Footer />
-      </div>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

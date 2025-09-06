@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 
@@ -8,6 +8,9 @@ const Detail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [book, setBook] = useState(null);
+
+  // useNavigate: yönlendirme yapan fonksiyonu döndürür
+  const navigate = useNavigate();
 
   // useParams: react-router-dom hook'u url'deki parametrele erişmeye yarar
   const { bookId } = useParams();
@@ -17,11 +20,15 @@ const Detail = () => {
     axios
       .get(`http://localhost:4040/books/${bookId}`)
       .then((res) => setBook(res.data))
-      .catch((err) => setError(err.message))
+      .catch((err) => {
+        // hata state'inin güncelle
+        setError(err.message);
+
+        // 404 sayfasına yönlendir
+        navigate("/not-found", { state: err.message });
+      })
       .finally(() => setLoading(false));
   }, []);
-
-  console.log(book);
 
   if (loading) return <Loader />;
 
