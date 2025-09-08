@@ -1,6 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { BasketContext } from "../context/basketContext";
 
 const Header = () => {
+  const { basket } = useContext(BasketContext);
+
+  // sepetteki toplam ürün miktarını hesapla
+  const total = basket.reduce((total, item) => total + item.amount, 0);
+
   return (
     <nav className="navbar bg-body-tertiary">
       <div className="container-fluid">
@@ -13,7 +20,7 @@ const Header = () => {
             Anasayfa
           </Link>
           <Link to="/basket" className="fw-bold">
-            Sepet (3)
+            Sepet ({total})
           </Link>
         </div>
       </div>

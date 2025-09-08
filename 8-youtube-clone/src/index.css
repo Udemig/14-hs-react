@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Tailwind ile stillendirilmiş kendi class'larımızı oluşturalım*/
+@layer components {
+  .icon {
+    @apply p-2 hover:bg-zinc-700 transition rounded-full;
+  }
+}
