@@ -1,6 +1,26 @@
 @import "tailwindcss";
 
-/* Tailwind ile stillendirilmiş kendi class'larımızı oluşturalım*/
+/* Tailwind'de değişken tanımlama */
+@theme {
+  /* kendi renk tronlarımı */
+  --color-black: #0f0f0f;
+  --color-white: #ffffff;
+  --color-grey: #3f3f3f;
+}
+
+/* JSX Elementlerine varsayılan stiller verelim */
+@layer base {
+  button,
+  a {
+    @apply cursor-pointer;
+  }
+
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+/* Tailwind ile stillendirilmiş kendi class'larımızı oluşturalım */
 @layer components {
   .icon {
     @apply p-2 hover:bg-zinc-700 transition rounded-full;
