@@ -6,6 +6,10 @@ const api = axios.create({
     "x-rapidapi-key": import.meta.env.VITE_API_KEY,
     "x-rapidapi-host": "yt-api.p.rapidapi.com",
   },
+  params: {
+    geo: "TR",
+    lang: "tr",
+  },
 });
 
 export default api;
