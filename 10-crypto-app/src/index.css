@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/*Html elementindeki dark class'ını tailwinde entegre etmek */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-between;
+  }
+
+  .card-label {
+    @apply text-sm text-gray-600 dark:text-gray-400;
+  }
+
+  .card-value {
+    @apply text-gray-900 dark:text-white;
+  }
+}
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+}
