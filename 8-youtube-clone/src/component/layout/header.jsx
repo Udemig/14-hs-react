@@ -4,9 +4,26 @@ import { IoIosVideocam } from "react-icons/io";
 import { FaBell } from "react-icons/fa";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { useSidebar } from "../../context/sidebar-context";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 const Header = () => {
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("search_query");
+
   const { toggleSidebar } = useSidebar();
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // inputtaki değeri al
+    const text = e.target[0].value.trim();
+
+    if (text) {
+      // arama sayfasına yönlendir (aratılan kelimeyi parametre olarak ekle)
+      navigate(`/results?search_query=${text}`);
+    }
+  };
 
   return (
     <header className="flex justify-between gap-4 px-4 h-14">
@@ -16,18 +33,19 @@ const Header = () => {
           <MdMenu className="text-xl md:text-2xl" />
         </button>
 
-        <button className="flex items-center gap-1">
+        <Link to="/" className="flex items-center gap-1">
           <img src="/youtube.png" alt="youtube" className="w-8" />
           <span className="text-xl font-bold tracking-tight max-sm:hidden">YouTube</span>
-        </button>
+        </Link>
       </div>
 
       {/* Orta: Arama */}
       <div className="flex-1 max-w-[728px] mx-4 flex justify-center items-center">
-        <form className="flex w-full max-w-[640px] items-center">
+        <form className="flex w-full max-w-[640px] items-center" onSubmit={handleSubmit}>
           <div className="flex flex-1">
             <input
               type="text"
+              defaultValue={query}
               className="w-full h-10 px-4 bg-[#121212] border border-grey rounded-l-full text-white placeholder:text-[#aaaaaa] focus:border-[#1c62b9] outline-none"
               placeholder="Ara"
             />

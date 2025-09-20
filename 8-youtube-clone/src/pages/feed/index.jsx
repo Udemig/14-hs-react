@@ -4,22 +4,32 @@ import SkeletonLoader from "../../component/loader/skeleton-loader";
 import Error from "../../component/error";
 import Shorts from "../../component/shorts";
 import Card from "../../component/card";
+import { useSearchParams } from "react-router-dom";
 
 const Feed = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedCategory = searchParams.get("category");
 
   // sayfa yüklenince
   useEffect(() => {
     setLoading(true);
 
+    // istek atılacak adresi belirle
+    const url = !selectedCategory
+      ? "/home"
+      : selectedCategory === "trendler"
+      ? "/trending"
+      : `/search?query=${selectedCategory}`;
+
     api
-      .get("/home")
+      .get(url)
       .then((res) => setData(res.data.data))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, []);
+  }, [selectedCategory]);
 
   // veriyi kategorize et
   const shortLists = data.filter((item) => item.type === "shorts_listing");
@@ -32,7 +42,7 @@ const Feed = () => {
   return (
     <div className="page">
       <div className="space-y-8">
-        <Shorts data={shortLists[0].data} />
+        {shortLists[0] && <Shorts data={shortLists[0].data} />}
 
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-6">
           {videos.map((video, key) => (
@@ -40,7 +50,7 @@ const Feed = () => {
           ))}
         </div>
 
-        <Shorts data={shortLists[1].data} />
+        {shortLists[1] && <Shorts data={shortLists[1].data} />}
       </div>
     </div>
   );

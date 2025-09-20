@@ -29,4 +29,8 @@
   .page {
     @apply h-[calc(100vh-56px)] w-full flex-1 py-6 px-4;
   }
+
+  .comment-field {
+    @apply hover:bg-zinc-700 cursor-pointer transition px-2 py-1 rounded;
+  }
 }

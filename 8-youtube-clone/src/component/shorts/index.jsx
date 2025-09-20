@@ -13,7 +13,7 @@ const Shorts = ({ data }) => {
         {data.map((short, key) => (
           <Link to={`/watch?v=${short.videoId}`} key={key} className="group">
             <div className="w-48 h-80 relative overflow-hidden rounded-lg bg-zinc-900">
-              <img src={short.thumbnail[1].url} className="size-full object-cover transition group-hover:scale-105" />
+              <img src={short.thumbnail[0]?.url} className="size-full object-cover transition group-hover:scale-105" />
 
               <div className="absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                 <h3 className="text-sm mb-1 line-clamp-2">{short.title}</h3>
