@@ -17,7 +17,11 @@ const coinApi = {
   },
 
   // coin detay verisini getir
-  async getCoinDetails() {},
+  async getCoinDetails(id) {
+    const res = await api.get(`/coins/${id}`);
+
+    return res.data;
+  },
 
   // fiyat geçmişini getir
   async getPriceHistory() {},

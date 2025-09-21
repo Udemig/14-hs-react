@@ -1,35 +1,72 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useMemo } from "react";
 import InfoList from "../../components/home/info-list";
 import RefreshButton from "../../components/home/refresh-button";
 import Searchbar from "../../components/home/searchbar";
 import coinApi from "../../services/coinApi";
-import { Loader } from "lucide-react";
 import CoinCard from "../../components/home/coin-card";
+import Loader from "../../components/loader";
+import RefreshInfo from "../../components/home/refresh-info";
+import Error from "../../components/error";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState(null);
   const [coins, setCoins] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // api'dan coin verilierini çeken fonksiyon
-  const fetchCoins = () => {
-    setLoading(true);
+  const fetchCoins = useCallback((isRefreshing = false) => {
+    if (isRefreshing) {
+      setRefreshing(true);
+    } else {
+      setLoading(true);
+    }
 
     coinApi
       .getTopCoins()
       .then((data) => {
         setCoins(data);
         setLastUpdated(new Date());
+        setError(null); // api'dan veri gelince error'u temizle
       })
       .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  };
+      .finally(() => {
+        setLoading(false);
+        setRefreshing(false);
+      });
+  }, []);
 
   // component ekrana gelince verileri çek
   useEffect(() => {
     fetchCoins();
   }, []);
+
+  // otomatik yenilenme - her 30sn de bir
+  useEffect(() => {
+    const id = setInterval(() => {
+      fetchCoins(true);
+    }, 30000);
+
+    // component ekrandan ayrılınca intervalı temizle
+    return () => clearInterval(id);
+  }, []);
+
+  // coin veya aratılan kelime her değişitiğinde filtrele
+  const filtredCoins = useMemo(() => {
+    // bir şey aratılmadıysa filtreleme yapma
+    if (!searchTerm.trim()) return coins;
+
+    // aratılan terimi küçük harfe çevir
+    const term = searchTerm.toLowerCase();
+
+    // filtreleme yap
+    return coins.filter((coin) => coin.name.toLowerCase().includes(term) || coin.symbol.toLowerCase().includes(term));
+  }, [coins, searchTerm]);
+
+  // hata durumu
+  if (error) return <Error message={error} refetch={fetchCoins} />;
 
   return (
     <div className="space-y-6">
@@ -42,9 +79,9 @@ const Home = () => {
 
         {/* Arama ve Yenileme */}
         <div className="flex items-center gap-5">
-          <Searchbar />
+          <Searchbar onSearch={setSearchTerm} />
 
-          <RefreshButton />
+          <RefreshButton fetchCoins={() => fetchCoins(true)} />
         </div>
       </div>
 
@@ -56,11 +93,13 @@ const Home = () => {
         <Loader />
       ) : (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {coins.map((coin) => (
+          {filtredCoins.map((coin) => (
             <CoinCard key={coin.id} coin={coin} />
           ))}
         </div>
       )}
+
+      <RefreshInfo show={refreshing} />
     </div>
   );
 };

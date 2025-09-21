@@ -19,6 +19,10 @@
   .card-value {
     @apply text-gray-900 dark:text-white;
   }
+
+  .detail-container {
+    @apply bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700;
+  }
 }
 
 @layer base {

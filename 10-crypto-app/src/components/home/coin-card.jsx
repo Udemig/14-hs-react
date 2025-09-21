@@ -1,8 +1,11 @@
-import { Star } from "lucide-react";
+import { Star, TrendingUp, TrendingDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { formatBigNumber, formatPercentage, formatPrice } from "../../utils/helpers";
 
 const CoinCard = ({ coin }) => {
-  console.log(coin);
+  // fiyat değişilikliği pozitif mi?
+  const isPositive = coin.price_change_percentage_24h >= 0;
+
   return (
     <Link
       to={`/coin/${coin.id}`}
@@ -32,26 +35,34 @@ const CoinCard = ({ coin }) => {
         </button>
       </div>
 
-      {/* 
-      * Coin Bilgileri
-      TODO: SAYILARI FORMATLIYACAK FONKSİYONLARI YAZ
+      {/*
+       * Coin Bilgileri
        */}
       <div className="space-y-3">
         <div className="flex-center">
           <span className="card-label">Fiyat</span>
-          <p className="card-value text-xl font-bold">${coin.current_price.toLocaleString()}</p>
+          <p className="card-value text-xl font-bold">{formatPrice(coin.current_price)}</p>
         </div>
+
         <div className="flex-center">
           <span className="card-label">24s Değişim (%)</span>
-          <p className="card-value font-semibold">{coin.price_change_percentage_24h}</p>
+          <p
+            className={`card-value font-semibold flex items-center space-x-1 ${
+              isPositive ? "text-green-500" : "text-red-500"
+            }`}
+          >
+            {isPositive ? <TrendingUp className="size-4" /> : <TrendingDown className="size-4" />}
+            {formatPercentage(coin.price_change_percentage_24h)}
+          </p>
         </div>
+
         <div className="flex-center">
           <span className="card-label">Market Cap</span>
-          <p className="card-value font-semibold">{coin.market_cap}</p>
+          <p className="card-value font-semibold">{formatBigNumber(coin.market_cap)}</p>
         </div>
         <div className="flex-center">
           <span className="card-label">24s Hacim</span>
-          <p className="card-value text-sm">{coin.total_volume}</p>
+          <p className="card-value text-sm">{formatBigNumber(coin.total_volume)}</p>
         </div>
       </div>
 
