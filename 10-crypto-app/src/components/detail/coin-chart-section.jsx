@@ -1,7 +1,8 @@
-import { Calendar } from "lucide-react";
+import { Calendar, LoaderCircle } from "lucide-react";
 import PriceChart from "./price-chart";
+import ChartLoader from "../loader/chart-loader";
 
-const CoinChartSection = ({ coin }) => {
+const CoinChartSection = ({ coin, selectedPeriod, setSelectedPeriod, historyLoading, priceHistory }) => {
   const periodOptions = [
     { day: 1, label: "1G" },
     { day: 7, label: "7G" },
@@ -21,7 +22,12 @@ const CoinChartSection = ({ coin }) => {
         <div className="flex gap-2">
           {periodOptions.map(({ day, label }) => (
             <button
-              className={`px-3 py-1 text-sm rounded-md transition . bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600`}
+              onClick={() => setSelectedPeriod(day)}
+              className={`px-3 py-1 text-sm rounded-md transition ${
+                selectedPeriod === day
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
+              }`}
             >
               {label}
             </button>
@@ -30,9 +36,11 @@ const CoinChartSection = ({ coin }) => {
       </div>
 
       {/* Fiyat Grafiği */}
-      <div>
-        <PriceChart symbol={coin.symbol} />
-      </div>
+      {historyLoading ? (
+        <ChartLoader />
+      ) : (
+        <PriceChart symbol={coin.symbol} priceHistory={priceHistory} days={selectedPeriod} />
+      )}
     </div>
   );
 };

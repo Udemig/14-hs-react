@@ -16,6 +16,9 @@ const Detail = () => {
   const [refreshing, setRefreshing] = useState(true);
   const [error, setError] = useState(null);
   const [coin, setCoin] = useState(null);
+  const [historyLoading, setHistoryLoading] = useState(true);
+  const [priceHistory, setPriceHistory] = useState([]);
+  const [selectedPeriod, setSelectedPeriod] = useState(7);
 
   // coin detaylarını çekip state'i güncelleyen fonksiyon
   const fetchCoinDetails = useCallback(
@@ -43,10 +46,42 @@ const Detail = () => {
     [id]
   );
 
-  // sayfa yüklenince coin detay verisini çek
+  // coin'in fiyat geçmişini geriricek fonksiyon
+  const fetchPriceHistory = useCallback(() => {
+    setHistoryLoading(true);
+
+    coinApi
+      .getPriceHistory(id, selectedPeriod)
+      .then((data) => {
+        setHistoryLoading(false);
+        setPriceHistory(data);
+      })
+      .catch((err) => {
+        setPriceHistory([]);
+      })
+      .finally(() => {
+        setHistoryLoading(false);
+      });
+  }, [id, selectedPeriod]);
+
+  // sayfa yüklenince coin detay verisini/ fiyat geçmişini çek
   useEffect(() => {
     fetchCoinDetails();
+    fetchPriceHistory();
   }, []);
+
+  // seçili zaman periyodu her değişitiğinde güncel değerleri al
+  useEffect(() => {
+    if (coin) {
+      // seçili periyoda göre fiyat geçmişini al
+      fetchPriceHistory();
+
+      // coin detay verilini tekrar çek
+      fetchCoinDetails(true);
+    }
+  }, [selectedPeriod]);
+
+  console.log(priceHistory);
 
   // loading anında:
   if (loading) return <Loader />;
@@ -56,11 +91,24 @@ const Detail = () => {
 
   return (
     <div className="space-y-6">
-      <CoinHeader coin={coin} refetch={() => fetchCoinDetails(true)} refreshing={refreshing} />
+      <CoinHeader
+        coin={coin}
+        refetch={() => {
+          fetchCoinDetails(true);
+          fetchPriceHistory();
+        }}
+        refreshing={refreshing}
+      />
 
       <CoinPrice coin={coin} />
 
-      <CoinChartSection coin={coin} />
+      <CoinChartSection
+        coin={coin}
+        selectedPeriod={selectedPeriod}
+        setSelectedPeriod={setSelectedPeriod}
+        historyLoading={historyLoading}
+        priceHistory={priceHistory}
+      />
 
       <CoinStats coin={coin} />
 

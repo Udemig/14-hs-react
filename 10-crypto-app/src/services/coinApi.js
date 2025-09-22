@@ -24,7 +24,20 @@ const coinApi = {
   },
 
   // fiyat geçmişini getir
-  async getPriceHistory() {},
+  async getPriceHistory(id, days) {
+    const res = await api.get(`/coins/${id}/market_chart`, {
+      params: {
+        vs_currency: "usd",
+        days: days,
+      },
+    });
+
+    return res.data.prices.map(([timestamp, price]) => ({
+      price,
+      timestamp,
+      date: new Date(timestamp).toISOString(),
+    }));
+  },
 };
 
 export default coinApi;
