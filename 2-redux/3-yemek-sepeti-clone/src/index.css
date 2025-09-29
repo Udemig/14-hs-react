@@ -14,4 +14,8 @@
     font-weight: 900;
     font-style: normal;
   }
+
+  .basket-btn {
+    @apply p-3 text-red-500 hover:bg-red-100 transition rounded-lg;
+  }
 }
