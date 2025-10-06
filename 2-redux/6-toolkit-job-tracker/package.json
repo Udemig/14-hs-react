@@ -1,5 +1,5 @@
 {
-  "name": "5-toolkit",
+  "name": "6-toolkit-job-tracker",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,14 +11,16 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
-    "@tailwindcss/vite": "^4.1.14",
-    "bootstrap": "^5.3.8",
+    "axios": "^1.12.2",
+    "days": "^1.1.1",
+    "json-server": "^1.0.0-beta.3",
+    "lucide-react": "^0.545.0",
     "react": "^19.1.1",
-    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.3",
-    "uuid": "^13.0.0"
+    "react-toastify": "^11.0.5",
+    "sass": "^1.93.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

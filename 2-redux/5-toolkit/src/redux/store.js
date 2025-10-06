@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./slices/counterSlice";
+import crudReducer from "./slices/crudSlice";
 
 /*
  * createStore vs configureStore
@@ -8,6 +9,6 @@ import counterReducer from "./slices/counterSlice";
  * devtools (geliştirici eklentisi) kurulu olarak gelir
  */
 
-const store = configureStore({ reducer: { counterReducer } });
+const store = configureStore({ reducer: { counterReducer, crudReducer } });
 
 export default store;

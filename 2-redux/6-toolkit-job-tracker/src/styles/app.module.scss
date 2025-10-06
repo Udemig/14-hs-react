@@ -1,0 +1,14 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page {
+  flex: 1;
+  padding: 20px;
+
+  @media (min-width: 768px) {
+    padding: 20px 40px;
+  }
+}

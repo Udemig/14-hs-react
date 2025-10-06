@@ -1,23 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import { decrease, increase, setCount } from "../../redux/slices/counterSlice";
+import { Button, Stack } from "react-bootstrap";
 
 const Counter = () => {
   const dispatch = useDispatch();
   const { count } = useSelector((store) => store.counterReducer);
 
   return (
-    <div>
-      <button onClick={() => dispatch(setCount(99))}>Sıfırla</button>
+    <Stack direction="horizontal" gap={5} className="justify-content-center mt-5">
+      <Button variant="secondary" onClick={() => dispatch(setCount(99))}>
+        Sıfırla
+      </Button>
 
-      <br />
-      <br />
-
-      <button onClick={() => dispatch(decrease())}>Azalt</button>
+      <Button variant="danger" onClick={() => dispatch(decrease())}>
+        Azalt
+      </Button>
 
       <h2>{count}</h2>
 
-      <button onClick={() => dispatch(increase())}>Arttır</button>
-    </div>
+      <Button onClick={() => dispatch(increase())}>Arttır</Button>
+    </Stack>
   );
 };
 
