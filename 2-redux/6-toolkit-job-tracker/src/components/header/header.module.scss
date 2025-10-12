@@ -3,12 +3,31 @@
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(135deg, var(--background-card) 0%, var(--background-light) 100%);
-  padding: 5px 20px 0 20px;
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
+  padding: 5px 20px 0 20px;
+
+  nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    a {
+      padding: 15px 0;
+      color: var(--text-primary);
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+
+      &:hover {
+        color: var(--text-primary);
+        transform: translateY(-1px);
+      }
+    }
+  }
 
   div {
     display: flex;
@@ -29,6 +48,12 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+  }
+
+  @media (max-width: 900px) {
+    h2 {
+      display: none;
     }
   }
 

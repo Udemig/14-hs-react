@@ -1,0 +1,87 @@
+{
+  "jobs": [
+    {
+      "position": "Data Analyst 5",
+      "company": "Coca Cola",
+      "location": "Menlo Park",
+      "status": "Devam Ediyor",
+      "type": "Uzaktan",
+      "id": "c1c7f9d1-dcf4-4b51-994f-499f8710f072",
+      "date": "2024-05-02"
+    },
+    {
+      "position": "Product Manager",
+      "company": "Udemig",
+      "location": "Redmond",
+      "status": "Kabul Edildi",
+      "type": "Yarı Zamanlı",
+      "id": "6b94a2d3-0571-412b-81e0-910d99a2f057",
+      "date": 1712607002328,
+      "rejection_date": "2025-07-10",
+      "accept_date": "2025-07-10"
+    },
+    {
+      "position": "Product Manager",
+      "company": "IBM",
+      "location": "Redmond",
+      "status": "Devam Ediyor",
+      "type": "Staj",
+      "id": "5fb295d4-ffe7-48a0-bf1b-a6e4e95020d3",
+      "date": "2025-07-27"
+    },
+    {
+      "position": "Marketing Manager",
+      "company": "Microsoft",
+      "location": "Seattle",
+      "status": "Reddedildi",
+      "type": "Yarı Zamanlı",
+      "id": "d7c4d757-4957-488d-a7f2-f8db05aa2c46",
+      "rejection_date": "2025-08-07"
+    },
+    {
+      "position": "Data Scientist",
+      "company": "Microsoft",
+      "location": "Menlo Park",
+      "status": "Mülakat",
+      "type": "Tam Zamanlı",
+      "id": "7fb211e4-a53e-4804-b949-9a3d25b8e67c",
+      "interview_date": "2025-08-16"
+    },
+    {
+      "id": "3a48eef4-2850-4b8d-83a2-aed6b10b37f8",
+      "position": "Data Analyst",
+      "company": "Mimcode",
+      "location": "İstanbul",
+      "status": "Reddedildi",
+      "type": "Yarı Zamanlı",
+      "rejection_date": "2025-08-07"
+    },
+    {
+      "position": "Fullstack Developer",
+      "company": "Udemig",
+      "location": "İstanbul, Türkiye",
+      "status": "Mülakat",
+      "type": "Uzaktan",
+      "interview_date": "2025-01-26T04:04",
+      "id": "v-bKA_8"
+    },
+    {
+      "position": "Frontend Developer",
+      "company": "Tesla",
+      "location": "Manhattan",
+      "status": "Mülakat",
+      "type": "Tam Zamanlı",
+      "interview_date": "2025-05-05T23:34",
+      "id": "S2O54pV"
+    },
+    {
+      "id": "31bf",
+      "position": "Frontend Developer",
+      "company": "Udemig",
+      "location": "New York",
+      "status": "Kabul Edildi",
+      "type": "Yarı Zamanlı",
+      "accept_date": "2025-07-29"
+    }
+  ]
+}
