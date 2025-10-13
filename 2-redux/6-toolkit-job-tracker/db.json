@@ -82,6 +82,24 @@
       "status": "Kabul Edildi",
       "type": "Yarı Zamanlı",
       "accept_date": "2025-07-29"
+    },
+    {
+      "id": "6b92",
+      "position": "Frontend Developer",
+      "company": "Udemig",
+      "location": "Redmond",
+      "status": "Devam Ediyor",
+      "type": "Tam Zamanlı",
+      "date": "2025-10-26"
+    },
+    {
+      "id": "20f2",
+      "position": "FullStack Developer",
+      "company": "Tesla",
+      "location": "New York",
+      "status": "Mülakat",
+      "type": "Tam Zamanlı",
+      "interview_date": "2025-10-12T00:06"
     }
   ]
 }

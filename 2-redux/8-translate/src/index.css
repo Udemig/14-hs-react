@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .textarea {
+    @apply w-full min-h-[200px] lg:min-h-[300px] text-zinc-900 lg:text-lg rounded-xl p-4 bg-zinc-100 border-2 border-zinc-200 focus:border-blue-500 focus:outline-none resize-none disabled:opacity-100 disabled:bg-zinc-700/50 disabled:border-zinc-600 disabled:placeholder:text-zinc-200;
+  }
+}
+
+* {
+  transition: color 0.2 ease, background-color 0.2s ease, border-color 0.2s ease;
+}
