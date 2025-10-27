@@ -1,7 +1,9 @@
 import EmojiPicker from "emoji-picker-react";
 import { useRef, useState } from "react";
+import { db } from "../../firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-const Form = () => {
+const Form = ({ user, room }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState("");
   const inputRef = useRef(null);
@@ -19,12 +21,29 @@ const Form = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!text.trim()) return;
 
-    console.log(text);
+    // verinin kaydedileceği kolleksiyonun referansını al
+    const collectionRef = collection(db, "messages");
+
+    // temizle
+    setText("");
+    setIsOpen(false);
+
+    // mesaj belgesini kolleksiyonuna kaydet
+    await addDoc(collectionRef, {
+      text: text.trim(),
+      room,
+      author: {
+        id: user.uid,
+        name: user.displayName,
+        photo: user.photoURL,
+      },
+      createdAt: serverTimestamp(),
+    });
   };
 
   return (

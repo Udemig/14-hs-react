@@ -8,11 +8,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
 
         {/* Oturumu kapalı kullanıcılar giremeyecek */}
         <Route element={<Protected />}>
-          <Route path="/room" element={<Room />} />
+          <Route path="/" element={<Room />} />
           <Route path="/chat/:room" element={<Chat />} />
         </Route>
       </Routes>

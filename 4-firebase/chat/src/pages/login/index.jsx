@@ -10,7 +10,7 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then(() => {
         toast.success("Oturum açıldı");
-        navigate("/room");
+        navigate("/");
       })
       .catch(() => toast.error("İşlem başarısız oldu"));
   };

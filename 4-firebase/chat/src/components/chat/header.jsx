@@ -7,7 +7,7 @@ const Header = ({ user, room }) => {
 
       <p className="font-semibold">{room}</p>
 
-      <Link to="/room" className="btn">
+      <Link to="/" className="btn">
         Farklı Oda
       </Link>
     </header>

@@ -22,7 +22,7 @@ const Protected = () => {
   // kullanıcı oturumu kapalıysa: login sayfasına yönlendir
   // Navigate: render sırasında yönlendirme yapmak için kullanılır
   // replace: yönlendirmeden önce bulunduğu sayfayı geçmişten sil
-  if (user === null) return <Navigate to="/" replace />;
+  if (user === null) return <Navigate to="/login" replace />;
 
   // kullanıcı oturumu açıksa: sayfayı göster
   // outlet: kapsayıcı route içerisinde alt route'un elementini gösterir

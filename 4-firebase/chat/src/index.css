@@ -24,4 +24,8 @@
   .btn {
     @apply py-2 px-4 rounded-md shadow-lg border border-gray-300 hover:bg-gray-100 hover:brightness-90 transition cursor-pointer;
   }
+
+  .message {
+    @apply p-[2px_4px] max-w-[90%] w-fit wrap-break-word;
+  }
 }
