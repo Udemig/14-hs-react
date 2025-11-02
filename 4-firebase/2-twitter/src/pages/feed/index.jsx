@@ -1,9 +1,7 @@
-import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
-import { useOutletContext } from "react-router-dom";
 import Nav from "../../components/feed/nav";
 import Main from "../../components/feed/main";
 import Aside from "../../components/feed/aside";
+import { useOutletContext } from "react-router-dom";
 
 const Feed = () => {
   const user = useOutletContext();

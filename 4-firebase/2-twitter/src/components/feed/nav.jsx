@@ -27,7 +27,12 @@ const Nav = ({ user }) => {
       <div>
         <div className="flex max-md:flex-col gap-4 justify-between max-md:items-center">
           <div className="flex gap-2">
-            <img src={user.photoURL} alt={user?.displayName} className="rounded-full max-w-[45px]" />
+            <img
+              src={user.photoURL}
+              alt={user?.displayName}
+              referrerPolicy="no-referrer"
+              className="rounded-full max-w-[45px]"
+            />
 
             <div>
               <p className="max-md:hidden text-sm">{user?.displayName}</p>

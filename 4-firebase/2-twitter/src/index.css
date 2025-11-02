@@ -11,8 +11,22 @@
   --color-tw-gray: #2d3336;
 }
 
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+}
+
 @layer components {
   .input {
     @apply bg-secondary text-black rounded mt-1 p-2 outline-none shadow-lg focus:shadow-[gray] w-full;
+  }
+
+  .submit-button {
+    @apply bg-secondary font-bold h-9 px-5 py-1.5 rounded-full text-primary tracking-wide hover:brightness-75 min-w-[100px] flex items-center justify-center transition cursor-pointer disabled:brightness-90 disabled:cursor-not-allowed;
+  }
+
+  .form-icon {
+    @apply hover:bg-tw-blue/20 rounded-full size-8 grid place-items-center transition;
   }
 }
