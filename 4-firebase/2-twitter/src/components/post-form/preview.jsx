@@ -12,7 +12,7 @@ const Preview = ({ url, cancelPreview }) => {
       >
         <IoMdClose />
       </button>
-      <img src={url} alt="preview" />
+      <img src={url} alt="preview" className="rounded-xl" />
     </div>
   );
 };

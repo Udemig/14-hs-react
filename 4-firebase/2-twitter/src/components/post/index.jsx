@@ -11,13 +11,13 @@ const Post = ({ tweet }) => {
 
       <div className="w-full flex flex-col gap-1">
         <div className="flex justify-between">
-          <UserInfo />
-          <Dropdown />
+          <UserInfo tweet={tweet} />
+          <Dropdown tweet={tweet} />
         </div>
 
-        <Content />
+        <Content data={tweet.content} />
 
-        <Buttons />
+        <Buttons tweet={tweet} />
       </div>
     </div>
   );
