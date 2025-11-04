@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Button Component matches snapshot 1`] = `
+<button
+  aria-label="Snapshot Test"
+  class="btn btn-primary"
+>
+  Snapshot Test
+</button>
+`;
