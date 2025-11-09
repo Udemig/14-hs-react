@@ -3,6 +3,7 @@ import { Button } from "./components/button";
 import "./App.css";
 import ColorButton from "./components/color-button";
 import Counter from "./components/counter";
+import Accordion from "./components/accordion";
 
 function App() {
   const [clickCount, setClickCount] = useState(0);
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🧪 React Unit Testing Öğrenme Projesi</h1>
+        <h1>🧪 React Unit Testing Öğrenme Projesi!</h1>
         <p>Jest ve React Testing Library ile test yazmayı öğrenin</p>
       </header>
 
@@ -36,6 +37,8 @@ function App() {
           <ColorButton />
 
           <Counter />
+
+          <Accordion />
         </section>
 
         <section className="demo-section">

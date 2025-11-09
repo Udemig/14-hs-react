@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-linear-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1200px] mx-auto px-10 md:px-20 py-5;
+  }
+
+  .header-link {
+    @apply hover:text-pink-300 transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-pink-400 hover:after:w-full after:transition-all after:duration-300;
+  }
+
+  .hero-btn {
+    @apply bg-linear-to-r from-pink-600 to-purple-600 py-3 px-6 rounded-xl flex-1 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 font-medium;
+  }
+}
