@@ -1,5 +1,6 @@
 import Hero from "./hero";
 import Statistics from "./statistics";
+import Map from "./map";
 
 const Home = () => {
   return (
@@ -7,6 +8,8 @@ const Home = () => {
       <Hero />
 
       <Statistics />
+
+      <Map />
     </div>
   );
 };

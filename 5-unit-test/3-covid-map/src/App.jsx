@@ -13,7 +13,7 @@ const App = () => {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/detail/:country" element={<Detail />} />
+            <Route path="/country/:country" element={<Detail />} />
             <Route path="/test-ui" element={<TestPage />} />
           </Routes>
         </main>
