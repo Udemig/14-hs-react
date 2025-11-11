@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { queryByTestId, render, screen } from "@testing-library/react";
 import Header from "../pages/detail/header";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -42,7 +42,9 @@ it("store'a veri geldiğinde ekrana ülke ismi ve bayrağı gelir", () => {
     </Provider>
   );
 
-  //todo: loader'ın ekranda olmadığından emin ol
+  // loader'ın ekranda olmadığından emin ol
+  const loader = screen.queryByTestId("loader");
+  expect(loader).toBeNull();
 
   // ülke ismi ekranda mı - v1
   const title = screen.getByRole("heading");

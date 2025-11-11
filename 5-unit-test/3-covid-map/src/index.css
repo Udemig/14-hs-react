@@ -23,3 +23,31 @@
     @apply bg-linear-to-r from-pink-600 to-purple-600 py-3 px-6 rounded-xl flex-1 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 font-medium;
   }
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
