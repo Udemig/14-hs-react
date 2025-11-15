@@ -1,4 +1,5 @@
 import { Search } from "lucide-react";
+import React from "react";
 
 const Searchbar = ({ onSearch }) => {
   // form gönderilince
@@ -31,4 +32,4 @@ const Searchbar = ({ onSearch }) => {
   );
 };
 
-export default Searchbar;
+export default React.memo(Searchbar);

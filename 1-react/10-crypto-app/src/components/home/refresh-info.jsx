@@ -1,4 +1,5 @@
 import { RefreshCw } from "lucide-react";
+import React from "react";
 
 const RefreshInfo = ({ show }) => {
   return (
@@ -13,4 +14,4 @@ const RefreshInfo = ({ show }) => {
   );
 };
 
-export default RefreshInfo;
+export default React.memo(RefreshInfo);

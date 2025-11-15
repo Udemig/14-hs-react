@@ -62,7 +62,11 @@ const Home = () => {
     const term = searchTerm.toLowerCase();
 
     // filtreleme yap
-    return coins.filter((coin) => coin.name.toLowerCase().includes(term) || coin.symbol.toLowerCase().includes(term));
+    return coins.filter(
+      (coin) =>
+        coin.name.toLowerCase().includes(term) ||
+        coin.symbol.toLowerCase().includes(term)
+    );
   }, [coins, searchTerm]);
 
   // hata durumu
@@ -73,20 +77,27 @@ const Home = () => {
       {/* Başlık */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Kripto Para Piyasası</h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">En popüler kripto para birimleri</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+            Kripto Para Piyasası
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">
+            En popüler kripto para birimleri
+          </p>
         </div>
 
         {/* Arama ve Yenileme */}
         <div className="flex items-center gap-5">
           <Searchbar onSearch={setSearchTerm} />
 
-          <RefreshButton fetchCoins={() => fetchCoins(true)} />
+          <RefreshButton fetchCoins={fetchCoins} />
         </div>
       </div>
 
       {/* Bilgiler */}
-      <InfoList total={coins.length} lastUpdate={lastUpdated?.toLocaleTimeString()} />
+      <InfoList
+        total={coins.length}
+        lastUpdate={lastUpdated?.toLocaleTimeString()}
+      />
 
       {/* Listeleme */}
       {loading && coins.length < 1 ? (

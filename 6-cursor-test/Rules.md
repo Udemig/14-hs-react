@@ -1,0 +1,3 @@
+# User Rules
+
+When creating a new project, always start with a detailed PRD.md to establish clear requirements and specifications. Break implementation into manageable phases in the PRD. Implement the codebase incrementally, phase by phase, rather than attempting everything at once. Keep files modular and separated, in appropriate folders, with a maximum of 500 lines of code per file. Never make changes that aren't documented in the PRD.md. If user requests conflict with the current PRD, update the document first to reflect these changes before implementing them, ensuring the PRD remains the single source of truth for project direction.

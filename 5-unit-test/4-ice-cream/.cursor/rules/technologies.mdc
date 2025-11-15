@@ -1,0 +1,145 @@
+---
+alwaysApply: true
+---
+
+# 🚀 **Technology Usage Rules**
+
+### **Allowed technologies:**
+
+**React, JavaScript, Axios, Redux or Context API, Lucide-React, TailwindCSS, React-Toastify**
+
+These rules define _exactly how each technology must be used_ in the project.
+
+---
+
+## **React Usage Rules**
+
+- Use **functional components only** — no class components.
+- Always use **React Hooks** (e.g., `useState`, `useEffect`, `useMemo`, `useRef`).
+- Organize components by feature, not by file type (feature-based architecture).
+- Component names must be **PascalCase**, files must match component names bu files shoud use **kebab-case**.
+- Avoid prop drilling — use **Context or Redux** when more than 2 levels are passed.
+- Use **early returns** inside components for conditional UI logic.
+- Keep components small, focused, and reusable.
+
+---
+
+## **JavaScript Usage Rules**
+
+- Use **modern ES6+** features only (destructuring, async/await, arrow functions).
+- Use **const** for everything except variables that change — then use `let`.
+- Never use `var`.
+- Use **named functions** or arrow functions with descriptive names.
+- No unnecessary libraries — stick to native JavaScript utilities where possible.
+
+---
+
+## **Axios Usage Rules**
+
+- Create a **centralized Axios instance** (`api.js`) with:
+
+  - Base URL
+  - Interceptors
+  - Default headers
+
+- Never call `axios.get()` directly inside components — always use the configured instance.
+- Use **try/catch** or **then/catch** for all Axios requests.
+- Show errors using **React Toastify** instead of console logs.
+- For repeated API calls, create **service functions** (e.g., `userService.js`).
+
+---
+
+## **Redux or Context API Usage Rules**
+
+Choose **one**, but follow these rules:
+
+### **If using Redux:**
+
+- Use **Redux Toolkit** only — no legacy Redux patterns.
+- Store must be split into **slices**.
+- Async requests must use **Thunk**.
+- Avoid spreading logic into components; keep logic inside slices.
+
+### **If using Context API:**
+
+- Create **separate contexts** per domain (e.g., AuthContext, UIContext).
+- Wrap context logic in **custom hooks** (`useAuth()`, `useUI()`).
+- Memoize provider values using `useMemo` to prevent unnecessary rerenders.
+
+---
+
+## **Lucide-React Icon Usage Rules**
+
+- Import only the icons you need, not the entire library.
+- Every icon must:
+
+  - Include `aria-hidden="true"` unless interactive
+  - Use TailwindCSS classes for sizing & color
+
+- Use consistent icon sizes across the UI (e.g., `size={20}`).
+
+---
+
+## **TailwindCSS Usage Rules**
+
+- Use **only TailwindCSS** for styling.
+- Use **utility-first styling** — avoid long custom class strings by extracting components.
+- Use **Tailwind config** for:
+
+  - Custom colors
+  - Spacing
+  - Fonts
+
+- Use `class:` conditions instead of ternary operations when applicable.
+- No inline style attributes except dynamic values (e.g., height in px from state).
+
+---
+
+## **React-Toastify Usage Rules**
+
+- Wrap the app in `<ToastContainer />` only once.
+- Use toast notifications for:
+
+  - API success
+  - API errors
+  - Form submission feedback
+
+- Use consistent toast variants (e.g., success, error, info).
+- Do not use `alert()` or console logs for user-facing messages.
+
+---
+
+## **JSON-SERVER Usage Rules**
+
+- JSON-Server must run as the **local mock backend** for all API requests.
+- Store all mock data in a file named **`db.json`** at the project root.
+- Do **not** make direct Axios calls to static JSON files — all requests must go through JSON-Server endpoints.
+- The base API URL must point to:
+
+  ```
+  http://localhost:3000
+  ```
+
+  (or whichever port JSON-Server is configured to use).
+
+- Always use the **Axios instance** (with interceptors) for JSON-Server requests.
+- Data operations must use the correct HTTP verbs:
+
+  - `GET` — fetch data
+  - `POST` — create
+  - `PUT` or `PATCH` — update
+  - `DELETE` — remove
+
+- When modifying data (POST, PUT, PATCH, DELETE), show a **React-Toastify notification** for success or error.
+- Create a dedicated service file for each resource (e.g., `userService.js`, `productService.js`) that interacts with JSON-Server.
+- Never mutate the JSON directly — all changes must happen via the API layer.
+
+---
+
+## **General Architecture Rules**
+
+- Keep all API logic in `/services`.
+- Keep global state in `/store` or `/contexts`.
+- Reusable components go into `/components`.
+- Complex UI features must live inside `/features/<featureName>`.
+- Assets live in `/assets`.

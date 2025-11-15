@@ -5,8 +5,15 @@ export const ThemeContext = createContext();
 
 // Sağlayıcı - HOC
 export const ThemeProvider = ({ children }) => {
-  // tema state'i
-  const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem("theme") === "dark");
+  // tema state'i - önce localStorage'dan kontrol et, yoksa tarayıcı tercihini al
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme === "dark";
+    }
+    // Tarayıcının tercihini kontrol et
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
 
   // temayı değiştiricek fonksiyon
   const toggleTheme = () => {
@@ -26,7 +33,11 @@ export const ThemeProvider = ({ children }) => {
     }
   }, [isDarkMode]);
 
-  return <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
 
 // Custom Hook

@@ -1,90 +1,85 @@
-import "./App.css";
+import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CategorySection from "./features/landing/components/category-section";
+import HeroSection from "./features/landing/components/hero-section";
+import LandingHeader from "./features/landing/components/landing-header";
+import SiteFooter from "./features/landing/components/site-footer";
+import {
+  accentColors,
+  heroContent,
+  testimonialContent,
+  viewOptions,
+} from "./features/landing/data/landing-data";
+import iceCreamService from "./services/ice-cream-service";
 
-function App() {
+const App = () => {
+  const [iceCreamProducts, setIceCreamProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const cartCount = 3;
+
+  useEffect(() => {
+    const fetchIceCreams = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const data = await iceCreamService.getAllIceCreams();
+
+        // Transform API data to match expected format
+        const transformedData = data.map((item, index) => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          unit: "top",
+          imageUrl: item.imageUrl,
+          accent: accentColors[index % accentColors.length],
+          description: item.description,
+        }));
+
+        setIceCreamProducts(transformedData);
+      } catch (err) {
+        setError("Dondurma verileri yüklenirken bir hata oluştu");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchIceCreams();
+  }, []);
+
   return (
-    <div className="app-shell">
-      <main className="design-card">
-        <header className="hero">
-          <div className="hero-icon">􀣺</div>
-          <h1>iOS 26 Design System</h1>
-          <p>Sade, ferah ve minimal Apple estetiği</p>
-        </header>
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#a11224] via-[#d43838] to-[#f06f3d] text-white">
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
-        <section className="feature-section">
-          <h2>Buton Stilleri</h2>
-          <div className="actions">
-            <button className="apple-button apple-button--filled">
-              <span className="button-icon">􀊄</span>
-              Primary Action
-            </button>
-            <button className="apple-button apple-button--soft">
-              <span className="button-icon">􀈖</span>
-              Secondary
-            </button>
-            <button className="apple-button apple-button--outline">
-              <span className="button-icon">􀍟</span>
-              Outline
-            </button>
-          </div>
-        </section>
+      <div className="pointer-events-none absolute -top-20 left-[-10%] h-72 w-72 rounded-full bg-white/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-32 right-[-5%] h-96 w-96 rounded-full bg-[#ffb347]/30 blur-[140px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_55%)]" />
 
-        <section className="feature-section">
-          <h2>Kart Bileşenleri</h2>
-          <div className="card-grid">
-            <div className="ios-card">
-              <div className="card-icon blue">􀌤</div>
-              <h3>Mesajlar</h3>
-              <p>Yeni bir mesaj gönderin</p>
-            </div>
-            <div className="ios-card">
-              <div className="card-icon green">􀎫</div>
-              <h3>FaceTime</h3>
-              <p>Görüntülü arama başlatın</p>
-            </div>
-            <div className="ios-card">
-              <div className="card-icon orange">􀋒</div>
-              <h3>Müzik</h3>
-              <p>Favori şarkılarınız</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="feature-section">
-          <h2>Liste Öğeleri</h2>
-          <div className="ios-list">
-            <div className="list-item">
-              <div className="list-icon purple">􀉆</div>
-              <div className="list-content">
-                <div className="list-title">Bildirimler</div>
-                <div className="list-subtitle">Bildirimleri yönetin</div>
-              </div>
-              <div className="list-chevron">􀆊</div>
-            </div>
-            <div className="list-item">
-              <div className="list-icon pink">􀎔</div>
-              <div className="list-content">
-                <div className="list-title">Gizlilik</div>
-                <div className="list-subtitle">Gizlilik ayarları</div>
-              </div>
-              <div className="list-chevron">􀆊</div>
-            </div>
-            <div className="list-item">
-              <div className="list-icon indigo">􀍟</div>
-              <div className="list-content">
-                <div className="list-title">Genel</div>
-                <div className="list-subtitle">Sistem ayarları</div>
-              </div>
-              <div className="list-chevron">􀆊</div>
-            </div>
-          </div>
-        </section>
-
-        <footer className="app-footer">
-          <p>Apple iOS 26 • Modern Tasarım Dili</p>
-        </footer>
+      <main className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-12 px-6 py-10 md:gap-16 md:py-16">
+        <LandingHeader cartCount={cartCount} />
+        <HeroSection hero={heroContent} testimonial={testimonialContent} />
+        <CategorySection
+          products={iceCreamProducts}
+          viewOptions={viewOptions}
+          loading={loading}
+          error={error}
+        />
+        <SiteFooter />
       </main>
     </div>
   );
-}
+};
 
 export default App;
