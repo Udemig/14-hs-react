@@ -1,9 +1,20 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import ProductCard from "../features/landing/components/product-card";
 import { renderWithProviders, screen, userEvent } from "./test-utils";
 import { mockProduct } from "../utils/constants";
+import { toast } from "react-toastify";
+
+vi.mock("react-toastify", () => ({
+  toast: {
+    success: vi.fn(),
+  },
+}));
 
 describe("Product Card Component", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it("ürün propu gönderilmediğinde null döner", () => {
     const { container } = renderWithProviders(<ProductCard product={null} />);
 
@@ -92,6 +103,11 @@ describe("Product Card Component", () => {
       serving: "Külah",
       quantity: 1,
     });
+
+    // toast.success bildirimi çağrılmış mı?
+    expect(toast.success).toHaveBeenCalledWith(
+      `${mockProduct.name} sepete eklendi! (Külah)`
+    );
   });
 
   it("aynı ürün farklı servis seçenekleriyle sepete eklenebilir", async () => {

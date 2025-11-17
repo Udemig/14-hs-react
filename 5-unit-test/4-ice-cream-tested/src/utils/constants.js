@@ -102,3 +102,36 @@ export const mockProducts = [
     description: "Ekşi ahududu sosu ile harmanlanmış kremsi vanilya",
   },
 ];
+
+export const mockBasket = {
+  basket: {
+    items: [
+      {
+        id: "1-Külah",
+        productId: "1",
+        name: "Vanilya Rüyası",
+        price: 149.9,
+        serving: "Külah",
+        quantity: 2,
+        totalPrice: 299.8,
+        imageUrl:
+          "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop",
+        accent: "from-[#ffe5dc] to-[#ffd4c7]",
+      },
+      {
+        id: "2-Bardakta",
+        productId: "2",
+        name: "Çikolata Cenneti",
+        price: 164.9,
+        serving: "Bardakta",
+        quantity: 1,
+        totalPrice: 164.9,
+        imageUrl:
+          "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop",
+        accent: "from-[#f2d8cd] to-[#f5c4b3]",
+      },
+    ],
+    totalQuantity: 3,
+    totalAmount: 464.7,
+  },
+};

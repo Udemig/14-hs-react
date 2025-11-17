@@ -24,20 +24,14 @@ const BasketDrawer = ({ isOpen, onClose }) => {
 
   const handleRemove = (id) => {
     dispatch(removeFromBasket(id));
-    toast.info("Ürün sepetten çıkarıldı", {
-      position: "bottom-right",
-      autoClose: 2000,
-    });
+    toast.info("Ürün sepetten çıkarıldı");
   };
 
   const handleConfirmOrder = () => {
     if (items.length === 0) return;
 
     dispatch(clearBasket());
-    toast.success("Siparişiniz alındı! Teşekkür ederiz 🎉", {
-      position: "bottom-right",
-      autoClose: 3000,
-    });
+    toast.success("Siparişiniz alındı! Teşekkür ederiz 🎉");
     onClose();
   };
 
@@ -56,6 +50,7 @@ const BasketDrawer = ({ isOpen, onClose }) => {
     <>
       {/* Backdrop */}
       <div
+        data-testid="backdrop"
         className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
           isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
@@ -88,7 +83,7 @@ const BasketDrawer = ({ isOpen, onClose }) => {
             aria-label="Sepeti kapat"
             onClick={handleClose}
             onKeyDown={(e) => handleKeyDown(e, handleClose)}
-            className="rounded-lg p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-rose-500"
+            className="rounded-lg p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600  focus-visible:outline-2 focus-visible:outline-rose-500"
           >
             <X className="h-5 w-5" aria-hidden="true" />
           </button>
@@ -146,7 +141,7 @@ const BasketDrawer = ({ isOpen, onClose }) => {
                         <button
                           type="button"
                           tabIndex="0"
-                          aria-label={`${item.name} miktarını azalt`}
+                          aria-label={`${item.id} miktarını azalt`}
                           onClick={() => handleDecrease(item.id)}
                           onKeyDown={(e) =>
                             handleKeyDown(e, () => handleDecrease(item.id))
@@ -163,7 +158,7 @@ const BasketDrawer = ({ isOpen, onClose }) => {
                         <button
                           type="button"
                           tabIndex="0"
-                          aria-label={`${item.name} miktarını artır`}
+                          aria-label={`${item.id} miktarını artır`}
                           onClick={() => handleIncrease(item.id)}
                           onKeyDown={(e) =>
                             handleKeyDown(e, () => handleIncrease(item.id))
@@ -184,7 +179,7 @@ const BasketDrawer = ({ isOpen, onClose }) => {
                         <button
                           type="button"
                           tabIndex="0"
-                          aria-label={`${item.name} ürünü sepetten çıkar`}
+                          aria-label={`${item.id} ürününü sepetten çıkar`}
                           onClick={() => handleRemove(item.id)}
                           onKeyDown={(e) =>
                             handleKeyDown(e, () => handleRemove(item.id))
