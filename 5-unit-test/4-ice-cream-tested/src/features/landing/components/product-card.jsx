@@ -13,6 +13,8 @@ const ProductCard = ({ product }) => {
     return null;
   }
 
+  console.log(product);
+
   const handleServingSelect = (option) => {
     setServing(option);
   };
@@ -36,6 +38,7 @@ const ProductCard = ({ product }) => {
     <div className="flex flex-col gap-6 rounded-3xl bg-white/90 p-6 text-gray-900 shadow-2xl shadow-rose-900/10 transition hover:-translate-y-1 hover:shadow-rose-900/20">
       <div className="flex justify-center">
         <div
+          data-testid="product-image"
           className={`relative flex h-28 w-28 items-center justify-center rounded-3xl bg-linear-to-br ${product.accent}`}
         >
           <img

@@ -11,7 +11,6 @@ import {
   accentColors,
   heroContent,
   testimonialContent,
-  viewOptions,
 } from "./features/landing/data/landing-data";
 import iceCreamService from "./services/ice-cream-service";
 
@@ -83,7 +82,6 @@ const App = () => {
         <HeroSection hero={heroContent} testimonial={testimonialContent} />
         <CategorySection
           products={iceCreamProducts}
-          viewOptions={viewOptions}
           loading={loading}
           error={error}
         />

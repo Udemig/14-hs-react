@@ -1,0 +1,67 @@
+{
+  "icecreams": [
+    {
+      "id": 1,
+      "name": "Vanilya Rüyası",
+      "description": "Madagaskar vanilya çekirdeği ile hazırlanmış kremalı ve yumuşak doku",
+      "price": 149.9,
+      "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 2,
+      "name": "Çikolata Cenneti",
+      "description": "Belçika bitter çikolatası ile zengin, pürüzsüz ve lezzetli",
+      "price": 164.9,
+      "imageUrl": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 3,
+      "name": "Çilek Bahçesi",
+      "description": "Taze çileklerle harmanlanmış kremsi mükemmellik",
+      "price": 149.9,
+      "imageUrl": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 4,
+      "name": "Naneli Çikolata Parçacıklı",
+      "description": "Serin nane dondurması ile bitter çikolata parçacıkları",
+      "price": 159.9,
+      "imageUrl": "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 5,
+      "name": "Karamelli Burgaç",
+      "description": "Tuzlu karamel sosu ile süslenmiş kremsi karamel",
+      "price": 174.9,
+      "imageUrl": "https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 6,
+      "name": "Antep Fıstığı Cenneti",
+      "description": "Kırılmış fındıklarla otantik İtalyan fıstık aroması",
+      "price": 189.9,
+      "imageUrl": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 7,
+      "name": "Kurabiyeli Krem",
+      "description": "Oreo kurabiye parçaları ile dolu vanilya dondurması",
+      "price": 164.9,
+      "imageUrl": "https://images.unsplash.com/photo-1623334044303-241021148842?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 8,
+      "name": "Mango Tango",
+      "description": "Tropikal mango sorbesi, serinletici ve meyveli",
+      "price": 144.9,
+      "imageUrl": "https://images.unsplash.com/photo-1571506165871-ee72a35bc9d4?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 9,
+      "name": "Ahududulu Dalgalar",
+      "description": "Ekşi ahududu sosu ile harmanlanmış kremsi vanilya",
+      "price": 159.9,
+      "imageUrl": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&h=300&fit=crop"
+    }
+  ]
+}
