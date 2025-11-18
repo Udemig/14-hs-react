@@ -81,13 +81,12 @@ const Detail = () => {
     }
   }, [selectedPeriod]);
 
-  console.log(priceHistory);
-
   // loading anında:
   if (loading) return <Loader />;
 
   // error anında:
-  if (error) return <Error message={error} refetch={() => fetchCoinDetails()} />;
+  if (error)
+    return <Error message={error} refetch={() => fetchCoinDetails()} />;
 
   return (
     <div className="space-y-6">
