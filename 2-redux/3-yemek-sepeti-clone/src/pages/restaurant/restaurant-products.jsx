@@ -26,14 +26,14 @@ const RestaurantProducts = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold flex items-center gap-2">
+      <h2 className="text-2xl md:text-3xl font-bold flex items-center gap-2">
         <Flame className="text-red-500 size-7" />
         Popüler
       </h2>
 
-      <p className="text-zinc-700">Restoranın en çok tercih edilen ürünleri</p>
+      <p className="muted-copy mt-1">Restoranın en çok tercih edilen ürünleri</p>
 
-      <div className="grid lg:grid-cols-2 gap-5 mt-5">
+      <div className="grid lg:grid-cols-2 gap-6 mt-6">
         {products.map((product) => (
           <Card key={product.id} product={product} />
         ))}

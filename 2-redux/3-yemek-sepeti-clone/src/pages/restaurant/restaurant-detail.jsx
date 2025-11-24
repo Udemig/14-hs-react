@@ -22,28 +22,29 @@ const RestaurantDetail = () => {
   if (!restaurant) return <div className="h-[150px]" />;
 
   return (
-    <div className="flex gap-5">
-      <img src={restaurant.photo} alt={restaurant.name} className="size-[150px] rounded-md" />
+    <div className="flex flex-col gap-5 md:flex-row md:items-center">
+      <img src={restaurant.photo} alt={restaurant.name} className="size-[150px] rounded-2xl object-cover shadow-inner" />
 
-      <div className="flex flex-col justify-between">
-        <div className="flex gap-4">
-          <p className="flex items-center gap-2">
-            <ArrowDown className="text-red-500" />
-            <span className="text-zinc-700">min {restaurant.minPrice} TL</span>
-          </p>
-          <p className="flex items-center gap-2">
-            <Clock className="text-red-500" />
-            <span className="text-zinc-700">≈ {restaurant.estimatedDelivery} dk</span>
-          </p>
+      <div className="flex flex-1 flex-col gap-4">
+        <div className="flex flex-wrap gap-3 text-sm font-semibold text-zinc-600">
+          <span className="soft-pill bg-white/80">
+            <ArrowDown className="size-4 text-red-400" />
+            min {restaurant.minPrice} TL
+          </span>
+          <span className="soft-pill bg-white/80">
+            <Clock className="size-4 text-red-400" /> ≈ {restaurant.estimatedDelivery} dk
+          </span>
         </div>
 
-        <h1 className="text-2xl md:text-3xl font-semibold">{restaurant.name}</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold">{restaurant.name}</h1>
 
-        <div className="flex items-center gap-2">
-          <Star className="text-red-500" />
-          <span className="text-zinc-700">{restaurant.rating}</span>
+        <div className="flex flex-wrap items-center gap-3 text-sm">
+          <span className="flex items-center gap-2 text-red-500 font-semibold">
+            <Star className="size-5" />
+            {restaurant.rating}
+          </span>
 
-          <button className="text-red-500 font-semibold rounded hover:bg-red-100 transition py-1 px-3">
+          <button className="rounded-full border border-red-200 px-4 py-2 text-red-500 transition hover:bg-red-50">
             Yorumları Gör
           </button>
         </div>

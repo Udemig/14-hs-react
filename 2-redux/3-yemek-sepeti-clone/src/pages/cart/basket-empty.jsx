@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 
 const BasketEmpty = () => {
   return (
-    <div className="flex flex-col items-center gap-5 my-10">
-      <ShoppingCart />
+    <div className="surface-card flex flex-col items-center gap-5 py-10 text-center">
+      <span className="rounded-full bg-red-50 p-4 text-red-500">
+        <ShoppingCart className="size-8" />
+      </span>
 
-      <h1 className="text-2xl font-bold">Sepetiniz Boş</h1>
+      <div>
+        <h1 className="text-2xl font-bold">Sepetiniz Boş</h1>
+        <p className="muted-copy mt-2">Henüz sepete bir ürün eklemediniz.</p>
+      </div>
 
-      <p className="text-zinc-700 text-lg">Henüz sepete bir ürün eklemediniz.</p>
-
-      <Link to="/" className="text-blue-500 hover:underline">
+      <Link to="/" className="soft-pill bg-red-500 text-white hover:bg-red-500/90">
         Restoran'lara Gözat
       </Link>
     </div>

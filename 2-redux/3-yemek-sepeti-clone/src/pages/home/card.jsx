@@ -5,40 +5,37 @@ const Card = ({ item }) => {
   return (
     <Link
       to={`/restaurant/${item.id}`}
-      className="relative shadow overflow-hidden hover:bg-gray-200 hover:shadow-lg cursor-pointer transition duration-300"
+      className="surface-card block relative overflow-hidden cursor-pointer transition duration-300 hover:-translate-y-1"
     >
-      <span className="bg-red-500 py-1 px-3 text-sm absolute end-1 top-2 text-white rounded-md">
-        {item.distance} km uzakta
-      </span>
+      <span className="soft-pill absolute right-4 top-4 bg-white/90 shadow-lg">{item.distance} km</span>
 
-      <img src={item.photo} alt={item.name} className="w-full object-cover h-[250px] lg:h-[200px]" />
+      <img src={item.photo} alt={item.name} className="w-full object-cover h-[230px] lg:h-[200px] rounded-[1.5rem]" />
 
-      <div className="p-3">
-        {/* Başlık */}
-        <div className="flex items-center justify-between">
-          <h3 className="text-2xl md:text-xl font-semibold">{item.name}</h3>
-          <p className="flex items-center gap-2 text-red-500">
-            <Star /> {item.rating}
+      <div className="p-5 space-y-4">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h3 className="text-2xl md:text-xl font-semibold">{item.name}</h3>
+            <p className="muted-copy mt-1 flex items-center gap-2">
+              <ArrowDown className="size-4 text-red-400" /> ₺{item.minPrice} min.
+            </p>
+          </div>
+
+          <p className="flex items-center gap-2 text-sm font-semibold text-red-500 bg-red-50 px-3 py-1 rounded-full">
+            <Star className="size-4" />
+            {item.rating}
           </p>
         </div>
 
-        {/* Min Teslimat */}
-        <div className="flex items-center text-zinc-700 my-3">
-          <ArrowDown className="size-5" />
-          <span>₺{item.minPrice}</span>
-        </div>
-
-        {/* Teslimat Bilgisi */}
-        <div className="flex justify-between items-center">
-          <div className="flex items-center gap-2 font-semibold">
-            <Clock className="text-red-500" />
-            <span className="text-zinc-700">{item.estimatedDelivery} dk.</span>
+        <div className="flex items-center justify-between text-sm">
+          <div className="flex items-center gap-2 font-semibold text-zinc-600">
+            <Clock className="text-red-400" />
+            <span>{item.estimatedDelivery} dk.</span>
           </div>
 
           {item.isDeliveryFree && (
-            <div className="flex items-center gap-2 font-semibold">
-              <Bike className="size-5" />
-              <span className="text-gray-500">Ücretsiz</span>
+            <div className="flex items-center gap-2 font-semibold text-zinc-600">
+              <Bike className="size-5 text-emerald-500" />
+              <span>Ücretsiz teslimat</span>
             </div>
           )}
         </div>

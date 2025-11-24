@@ -9,10 +9,14 @@ const Cart = () => {
   const { isLoading, error, basket } = useSelector((store) => store.basket);
 
   return (
-    <div className="container">
-      <h1 className="text-2xl font-bold mb-5">SEPET</h1>
+    <div className="container space-y-6">
+      <div>
+        <p className="soft-pill bg-white/80 w-fit">Siparişiniz</p>
+        <h1 className="text-3xl font-bold mt-3">Sepet</h1>
+        <p className="muted-copy mt-1">Eklediğiniz ürünleri düzenleyin ve teslimata hazırlanın.</p>
+      </div>
 
-      <div className="grid md:grid-cols-[1fr_300px] gap-4">
+      <div className="grid md:grid-cols-[1fr_320px] gap-6 items-start">
         <div>
           {isLoading ? (
             <Loader />

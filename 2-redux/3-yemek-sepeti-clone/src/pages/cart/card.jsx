@@ -19,34 +19,40 @@ const Card = ({ product }) => {
   };
 
   return (
-    <div className="mb-10 p-4 border rounded flex gap-4">
-      <img src={product.photo} alt={product.title} className="size-[100px] rounded-lg" />
+    <div className="surface-card mb-6 flex gap-4 p-4">
+      <img src={product.photo} alt={product.title} className="size-[110px] rounded-2xl object-cover" />
 
-      <div className="w-full flex flex-col justify-between">
-        <Link to={`/restaurant/${product.restaurantId}`} className="text-xl font-semibold text-red-500 hover:underline">
+      <div className="w-full flex flex-col gap-4">
+        <Link
+          to={`/restaurant/${product.restaurantId}`}
+          className="text-xl font-semibold text-red-500 hover:underline decoration-2"
+        >
           {product.title}
         </Link>
 
-        <div className="flex justify-between items-center">
-          <p className="font-semibold text-lg">{product.price}₺</p>
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <p className="text-lg font-semibold text-red-500">{product.price}₺</p>
 
-          <div className="flex items-center gap-5">
-            <div className="flex items-center border text-xl rounded-lg">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 rounded-full border border-red-100 bg-red-50/70 px-2">
               <button
                 onClick={handleMinus}
                 disabled={product.amount === 1}
-                className="basket-btn disabled:cursor-not-allowed"
+                className="p-2 text-red-500 transition hover:text-red-600 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 <Minus className="size-4" />
               </button>
 
-              <span>{product.amount}</span>
+              <span className="text-lg font-semibold">{product.amount}</span>
 
-              <button onClick={handleAdd} className="basket-btn">
+              <button onClick={handleAdd} className="p-2 text-red-500 transition hover:text-red-600">
                 <Plus className="size-4" />
               </button>
             </div>
-            <button onClick={handleRemove} className="basket-btn">
+            <button
+              onClick={handleRemove}
+              className="rounded-full border border-red-100 p-2 text-red-400 transition hover:bg-red-50 hover:text-red-600"
+            >
               <Trash className="size-4" />
             </button>
           </div>

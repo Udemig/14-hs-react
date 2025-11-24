@@ -3,16 +3,12 @@ import RestaurantProducts from "./restaurant-products";
 
 const Restaurant = () => {
   return (
-    <div>
-      <div className="shadow">
-        <div className="container">
-          <RestaurantDetail />
-        </div>
+    <div className="container space-y-6">
+      <div className="surface-card p-6">
+        <RestaurantDetail />
       </div>
-      <div className="shadow">
-        <div className="container">
-          <RestaurantProducts />
-        </div>
+      <div className="surface-card p-6">
+        <RestaurantProducts />
       </div>
     </div>
   );

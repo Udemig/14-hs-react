@@ -1,8 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
+@layer base {
+  body {
+    @apply bg-[#fff8f3] text-slate-800 min-h-screen antialiased;
+    background-image: radial-gradient(
+        circle at 10% 20%,
+        rgba(248, 113, 113, 0.25),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 90% 0%,
+        rgba(253, 230, 138, 0.4),
+        transparent 40%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 248, 243, 0.9) 100%
+      );
+  }
+}
 
 @layer components {
   .container {
@@ -17,5 +38,17 @@
 
   .basket-btn {
     @apply p-3 text-red-500 hover:bg-red-100 transition rounded-lg;
+  }
+
+  .surface-card {
+    @apply bg-white/90 border border-white/80 shadow-[0_20px_60px_rgba(248,113,113,0.15)] rounded-2xl backdrop-blur;
+  }
+
+  .soft-pill {
+    @apply inline-flex items-center gap-1 text-[0.75rem] font-semibold tracking-wide bg-red-50 text-red-500 px-3 py-1 rounded-full shadow-inner;
+  }
+
+  .muted-copy {
+    @apply text-sm text-zinc-500;
   }
 }

@@ -20,21 +20,21 @@ const Card = ({ product }) => {
   };
 
   return (
-    <div className="grid grid-cols-[1fr_115px] gap-3 border shadow p-3 hover:bg-red-100 hover:scale-[1.02] cursor-pointer transition">
-      <div className="flex flex-col justify-between">
+    <div className="surface-card grid grid-cols-[1fr_130px] gap-4 p-4 transition hover:-translate-y-1">
+      <div className="flex flex-col gap-3">
         <div>
           <h1 className="text-xl font-semibold">{product.title}</h1>
-          <p className="text-zinc-700 my-1">{product.desc}</p>
+          <p className="muted-copy mt-1">{product.desc}</p>
         </div>
-        <p className="text-lg font-semibold">{product.price}₺</p>
+        <p className="text-lg font-semibold text-red-500">{product.price}₺</p>
       </div>
 
-      <div className="relative">
-        <img src={product.photo} alt={product.title} className="rounded-md object-cover size-full" />
+      <div className="relative rounded-2xl overflow-hidden">
+        <img src={product.photo} alt={product.title} className="object-cover size-full" />
 
         <button
           onClick={handleAdd}
-          className="absolute end-2 bottom-2 bg-white rounded-full size-8 grid place-items-center hover:bg-red-100 transition cursor-pointer font-bold"
+          className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full bg-white text-red-500 shadow-lg transition hover:bg-red-50"
         >
           {basketItem ? basketItem.amount : <Plus />}
         </button>
