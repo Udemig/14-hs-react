@@ -24,8 +24,10 @@ class İnsan {
     console.log(`Merhaba benim adım ${this.isim} ${this.soyad} ve ${this.yas} yaşındayım`);
   }
 }
-const insan1 = new İnsan("Ahmet", "Yıldız", 53);
-insan1.konus();
+const insan1 = new İnsan("Ahmet", "Yılmaz", 35);
+const insan2 = new İnsan("Ftma", "Yılmaz", 25);
+console.log(insan1);
+console.log(insan2);
 
 /*
  ! Challange

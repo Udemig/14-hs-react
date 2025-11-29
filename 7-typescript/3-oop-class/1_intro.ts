@@ -56,6 +56,7 @@ class EskiTelefon {
 
 const telefon1 = new EskiTelefon();
 const telefon2 = new EskiTelefon();
+const telefon3 = new EskiTelefon();
 
 telefon2.marka = "Nokia";
 telefon2.telefonTipi = "Dikey";
