@@ -9,7 +9,7 @@
  * Sınıf (Class)
  * Nesne (Object)
  * Kalıtım (Inheritance)
- * Interface
+ * Interface (Arayüz)
  * Çok Bicimlik (Polymorhisim)
  * Kapsülleme (Encapsulation)
  * Soyutlama (Abstraction)
