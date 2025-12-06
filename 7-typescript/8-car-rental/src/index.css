@@ -1,0 +1,358 @@
+@import "tailwindcss";
+
+/* Modern design system with updated colors and gradients */
+@theme {
+  --color-dark-bg: #0f0f14;
+  --color-card-bg: #1a1a21;
+  --color-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --color-pattern: #1a1a21;
+  --color-black-100: #2d2d37;
+  --color-primary-blue: #4f46e5;
+  --color-primary-blue-dark: #3730a3;
+  --color-primary-blue-100: rgba(79, 70, 229, 0.1);
+  --color-primary-blue-200: rgba(79, 70, 229, 0.05);
+  --color-accent: #06b6d4;
+  --color-accent-dark: #0891b2;
+  --color-grey: #6b7280;
+  --color-grey-light: #9ca3af;
+  --color-light-white: rgba(255, 255, 255, 0.05);
+  --color-light-white-100: rgba(255, 255, 255, 0.02);
+  --color-secondary-orange: #f59e0b;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+}
+
+/* Base styles with modern approach */
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-dark-bg to-black-100 text-white font-medium;
+    background-attachment: fixed;
+  }
+}
+
+/* Modern utility classes */
+@layer utilities {
+  .input-bg {
+    @apply backdrop-blur-xl bg-white/10 h-[52px] px-4 border  border-white/20 placeholder-grey-light outline-none focus:border-primary-blue/50 focus:bg-white/10 transition duration-300;
+  }
+
+  .search-btn {
+    @apply ml-4 p-2 backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl hover:bg-white/20 transition duration-300 hover:scale-105 cursor-pointer;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/20 border border-white/10;
+  }
+
+  .modern-shadow {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .modern-shadow-lg {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-blue to-accent bg-clip-text text-transparent;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105;
+  }
+}
+
+/* Modern component styles */
+@layer components {
+  .max-width {
+    @apply max-w-[1440px] mx-auto;
+  }
+
+  .padding-x {
+    @apply sm:px-16 px-6;
+  }
+
+  .padding-y {
+    @apply py-4;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .custom-btn {
+    @apply relative inline-flex items-center justify-center py-3 px-8 outline-none cursor-pointer 
+           bg-gradient-to-r from-primary-blue to-primary-blue-dark text-white font-semibold 
+           rounded-2xl shadow-lg shadow-primary-blue/25 hover:shadow-xl hover:shadow-primary-blue/40 
+           transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105
+           before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-r 
+           before:from-white/20 before:to-transparent before:opacity-0 
+           hover:before:opacity-100 before:transition-opacity before:duration-300;
+  }
+
+  /* Modern Hero Section */
+  .hero {
+    @apply flex xl:flex-row flex-col gap-8 relative z-0 max-w-[1440px] mx-auto items-center;
+  }
+
+  .hero-title {
+    @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-bold leading-tight;
+    background: linear-gradient(135deg, #ffffff 0%, #e5e7eb 50%, #9ca3af 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    @apply text-[24px] font-normal mt-6 text-grey-light leading-relaxed;
+  }
+
+  .hero-image-container {
+    @apply xl:flex-[1.5] flex justify-end items-center w-full xl:h-screen max-h-[920px];
+  }
+
+  .hero-image {
+    @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0 flex items-center;
+  }
+
+  .hero-image-overlay {
+    @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-gradient-to-br from-primary-blue/20 to-accent/20 
+           bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden rounded-3xl blur-3xl;
+  }
+
+  /* Modern Home Styles */
+  .home-text-container {
+    @apply flex flex-col items-start justify-start gap-y-4;
+  }
+
+  .home-filters {
+    @apply mt-10 w-full flex justify-between items-center flex-wrap gap-6;
+  }
+
+  .home-filter-container {
+    @apply flex justify-start flex-wrap items-center gap-3;
+  }
+
+  .home-cars-wrapper {
+    @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-10;
+  }
+
+  .home-error-container {
+    @apply my-20 flex justify-center items-center flex-col gap-4;
+  }
+
+  /* Modern Car Card Styles */
+  .car-card {
+    @apply flex flex-col p-8 justify-center items-start text-white 
+    backdrop-blur-xl bg-black/20 border border-white/10 rounded-3xl 
+           hover:border-primary-blue/50 hover:bg-white/5
+            transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105
+           relative overflow-hidden;
+  }
+
+  .car-card::before {
+    @apply absolute inset-0 bg-gradient-to-br from-primary-blue/10 via-transparent to-accent/10 
+           opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none;
+    content: "";
+  }
+
+  .car-card-content {
+    @apply w-full flex justify-between items-start gap-2 relative z-10;
+  }
+
+  .car-card-content-title {
+    @apply text-[24px] leading-[30px] font-bold capitalize text-white;
+  }
+
+  .car-card-price {
+    @apply flex mt-6 text-[36px] leading-[42px] font-bold bg-gradient-to-r from-primary-blue to-accent bg-clip-text text-transparent relative z-10;
+  }
+
+  .car-card-price-dollar {
+    @apply self-start text-[16px] leading-[20px] font-semibold;
+  }
+
+  .car-card-price-day {
+    @apply self-end text-[16px] leading-[20px] font-medium text-grey-light;
+  }
+
+  .car-card-image {
+    @apply relative w-full h-48 my-4 object-contain z-10;
+  }
+
+  .car-card-icon-container {
+    @apply flex group-hover:invisible w-full justify-between text-grey-light relative z-10;
+  }
+
+  .car-card-icon {
+    @apply flex flex-col justify-center items-center gap-2;
+  }
+
+  .car-card-icon-text {
+    @apply text-[14px] leading-[17px] font-medium;
+  }
+
+  .car-card-btn-container {
+    @apply hidden group-hover:flex absolute bottom-0 w-full z-20;
+  }
+
+  /* Modern Car Details Modal */
+  .car-details-dialog-panel {
+    @apply relative w-full max-w-2xl max-h-[90vh] overflow-y-auto transform 
+           rounded-3xl backdrop-blur-xl bg-white/10  p-8 text-left
+           transition-all flex flex-col gap-6 border border-white/20;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .car-details-close-btn {
+    @apply absolute top-4 right-4 z-10 w-12 h-12 flex items-center justify-center
+    backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl hover:bg-white/20 transition-all duration-300;
+  }
+
+  .car-details-main-image {
+    @apply relative w-full h-48 bg-gradient-to-br from-primary-blue/20 to-accent/20 
+           bg-cover bg-center rounded-2xl;
+  }
+
+  /* Modern Filter Styles */
+  .custom-filter-btn {
+    @apply relative w-full min-w-[140px] flex justify-between items-center cursor-default 
+           rounded-2xl backdrop-blur-xl bg-white/10 py-3 px-4 text-left text-white
+           border border-white/20 hover:border-primary-blue/50 transition-all duration-300;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .custom-filter-options {
+    @apply absolute mt-2 max-h-60 w-full overflow-auto rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 
+           py-2 text-base focus:outline-none;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Modern Footer */
+  .footer {
+    @apply flex flex-col text-grey-light mt-12 border-t backdrop-blur-xl bg-black/20 border border-white/10;
+  }
+
+  .footer-links-container {
+    @apply flex max-md:flex-col flex-wrap justify-between gap-8 sm:px-16 px-6 py-12;
+  }
+
+  .footer-rights {
+    @apply flex flex-col justify-start items-start gap-6;
+  }
+
+  .footer-links {
+    @apply flex-1 w-full flex md:justify-end flex-wrap max-md:mt-10 gap-20;
+  }
+
+  .footer-link {
+    @apply flex flex-col gap-6 text-base min-w-[170px];
+  }
+
+  .footer-copyrights {
+    @apply flex justify-between items-center flex-wrap mt-12 border-t border-white/10 
+           sm:px-16 px-6 py-8;
+  }
+
+  .footer-copyrights-link {
+    @apply flex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-10;
+  }
+
+  /* Modern Search Bar */
+  .searchbar {
+    @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-4xl;
+  }
+
+  .searchbar-item {
+    @apply flex-1 max-sm:w-full flex justify-start items-center relative;
+  }
+
+  .searchbar-input {
+    @apply w-full h-[48px] pl-14 pr-4 py-3 outline-none cursor-pointer text-sm
+    backdrop-blur-xl bg-white/10  rounded-2xl border border-white/20 text-white placeholder-grey-light
+           focus:border-primary-blue/50 focus:bg-white/10 transition-all duration-300;
+  }
+
+  .search-manufacturer {
+    @apply flex-1 max-sm:w-full flex justify-start items-center;
+  }
+
+  .search-manufacturer-input {
+    @apply w-full h-[52px] pl-14 pr-4 py-3 rounded-2xl backdrop-blur-xl bg-white/10  outline-none 
+           cursor-pointer text-white placeholder-grey-light border border-white/20
+           focus:border-primary-blue/50 focus:bg-white/10 transition-all duration-300;
+  }
+
+  .search-manufacturer-options {
+    @apply absolute mt-2 max-h-60 w-full overflow-auto rounded-2xl backdrop-blur-xl bg-white/10
+           py-2 text-base border border-white/20 focus:outline-none;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .search-manufacturer-option {
+    @apply cursor-default select-none py-3 pl-12 pr-4 text-white hover:bg-white/10 
+           transition-colors duration-200;
+  }
+}
+
+/* Modern Pagination */
+.pagination {
+  display: flex;
+  width: 100%;
+  margin: 60px 0;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 16px;
+  gap: 8px;
+}
+
+.pagination li {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: white;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.pagination li:hover {
+  background: rgba(79, 70, 229, 0.2);
+  border-color: rgba(79, 70, 229, 0.5);
+  transform: translateY(-2px);
+}
+
+.pagination .selected {
+  background: linear-gradient(135deg, #4f46e5, #3730a3);
+  color: white;
+  border-color: #4f46e5;
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+}
+
+.pagination .previous,
+.pagination .next {
+  font-weight: bold;
+  padding: 0 8px;
+  width: auto;
+  min-width: 44px;
+}
