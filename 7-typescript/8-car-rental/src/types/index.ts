@@ -1,3 +1,5 @@
+import type { driveOptions } from "../constants";
+
 export interface Car {
   make: string;
   model: string;
@@ -25,7 +27,7 @@ export interface Car {
   combineduf: number;
   cylinders: number;
   displ: number;
-  drive: string;
+  drive: keyof typeof driveOptions;
   engid: string;
   eng_dscr: string[];
   fescore: number | null;

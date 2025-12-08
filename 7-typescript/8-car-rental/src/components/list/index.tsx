@@ -1,6 +1,10 @@
 import { useEffect, useState, type FC } from "react";
 import { fetchCars } from "../../service";
 import type { Car } from "../../types";
+import Loader from "../loader";
+import Error from "../error";
+import Container from "../container";
+import Card from "./card";
 
 const List: FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,7 +24,29 @@ const List: FC = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  return <div>List</div>;
+  if (loading)
+    return (
+      <Container>
+        <Loader />
+      </Container>
+    );
+
+  if (error)
+    return (
+      <Container>
+        <Error />
+      </Container>
+    );
+
+  return (
+    <div className="padding-x max-width">
+      <section className="home-cars-wrapper">
+        {cars?.map((car) => (
+          <Card key={car.id} car={car} />
+        ))}
+      </section>
+    </div>
+  );
 };
 
 export default List;

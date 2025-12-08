@@ -1,4 +1,6 @@
 import type { FC } from "react";
+import Searchbar from "./searchbar";
+import Year from "./year";
 
 const Filter: FC = () => {
   return (
@@ -10,6 +12,14 @@ const Filter: FC = () => {
         <p className="text-xl text-grey-light">
           Beğenebileceğin araçları keşfet
         </p>
+      </div>
+
+      <div className="home-filters">
+        <Searchbar />
+
+        <div className="home-filter-container">
+          <Year />
+        </div>
       </div>
     </div>
   );

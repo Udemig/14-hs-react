@@ -53,7 +53,8 @@
   }
 
   .modern-shadow {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .modern-shadow-lg {
@@ -72,7 +73,7 @@
 /* Modern component styles */
 @layer components {
   .max-width {
-    @apply max-w-[1440px] mx-auto;
+    @apply max-w-[1640px] mx-auto;
   }
 
   .padding-x {
@@ -230,13 +231,15 @@
     @apply relative w-full min-w-[140px] flex justify-between items-center cursor-default 
            rounded-2xl backdrop-blur-xl bg-white/10 py-3 px-4 text-left text-white
            border border-white/20 hover:border-primary-blue/50 transition-all duration-300;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .custom-filter-options {
     @apply absolute mt-2 max-h-60 w-full overflow-auto rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 
            py-2 text-base focus:outline-none;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   /* Modern Footer */
@@ -297,7 +300,8 @@
   .search-manufacturer-options {
     @apply absolute mt-2 max-h-60 w-full overflow-auto rounded-2xl backdrop-blur-xl bg-white/10
            py-2 text-base border border-white/20 focus:outline-none;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .search-manufacturer-option {
