@@ -14,7 +14,7 @@ const Filter: FC = () => {
         </p>
       </div>
 
-      <div className="home-filters">
+      <div className="home-filters items-center">
         <Searchbar />
 
         <div className="home-filter-container">
