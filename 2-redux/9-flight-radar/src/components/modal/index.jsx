@@ -10,7 +10,9 @@ import Airport from "./airport";
 import Time from "./time";
 
 const Modal = () => {
-  const { flightId, isLoading, error, info } = useSelector((store) => store.detail);
+  const { flightId, isLoading, error, info } = useSelector(
+    (store) => store.detail
+  );
   const dispatch = useDispatch();
 
   console.log(info);
