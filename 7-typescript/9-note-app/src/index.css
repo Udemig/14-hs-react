@@ -1,0 +1,293 @@
+@import "tailwindcss";
+
+@theme {
+  /* Ana Renkler */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-secondary: #64748b;
+  --color-secondary-hover: #475569;
+  --color-accent: #8b5cf6;
+
+  /* Nötr Renkler */
+  --color-background: #f9fafb;
+  --color-card: #ffffff;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-border: #e2e8f0;
+
+  /* Durum Renkleri */
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+
+  /* Gölgeler */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* Köşe Yuvarlatma */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Geçiş Animasyonları */
+  --transition-normal: all 0.2s ease;
+  --transition-slow: all 0.3s ease;
+
+  /* Tipografi */
+  --font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Koyu Tema */
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: #0f172a;
+    --color-card: #1e293b;
+    --color-text-primary: #f1f5f9;
+    --color-text-secondary: #94a3b8;
+    --color-border: #334155;
+  }
+}
+
+/* Temel Stiller */
+body {
+  font-family: theme(--font-family);
+  background-color: theme(--color-background);
+  color: theme(--color-text-primary);
+  transition: theme(--transition-normal);
+  min-height: 100vh;
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.4s ease-out;
+}
+
+.animate-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* Duyarlı (Responsive) Container */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Yardımcı Sınıflar */
+.transition-all {
+  transition: theme(--transition-normal);
+}
+
+/* Markdown İçeriği İçin Tipografi */
+.prose {
+  color: theme(--color-text-primary);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: theme(--color-text-primary);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.prose h1 {
+  font-size: 2em;
+}
+
+.prose h2 {
+  font-size: 1.5em;
+}
+
+.prose h3 {
+  font-size: 1.25em;
+}
+
+.prose h4 {
+  font-size: 1em;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  color: theme(--color-text-secondary);
+  margin-bottom: 1em;
+}
+
+.prose a {
+  color: theme(--color-primary);
+  text-decoration: underline;
+}
+
+.prose pre {
+  background-color: theme(--color-background);
+  padding: 1rem;
+  border-radius: theme(--radius-md);
+  overflow-x: auto;
+}
+
+.prose code {
+  background: #334155;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.prose table {
+  border: 1px solid theme(--color-border);
+  width: 100%;
+  margin-bottom: 1em;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+.prose table th,
+td {
+  padding: 8px;
+  border: 1px solid theme(--color-border);
+}
+
+/* Temel Bileşenler */
+.card {
+  background-color: theme(--color-card);
+  border-radius: theme(--radius-md);
+  box-shadow: theme(--shadow-md);
+  transition: theme(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: theme(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply py-2 px-3 rounded-full transition-all text-text-secondary hover:text-text-primary;
+  }
+
+  .nav-link.active {
+    @apply bg-primary text-text-primary;
+  }
+
+  .label {
+    @apply block text-primary text-sm mb-2;
+  }
+
+  .form-button {
+    @apply inline-flex items-center justify-center w-full md:w-auto px-5 py-2.5 rounded-md border border-border hover:bg-background transition;
+  }
+}
+
+/* SimpleMDE (Markdown Editor) Özel Stilleri */
+.markdown-editor .CodeMirror {
+  background-color: theme(--color-card) !important;
+  border: 1px solid theme(--color-border) !important;
+  border-radius: theme(--radius-md) !important;
+  color: theme(--color-text-primary) !important;
+  transition: theme(--transition-normal) !important;
+}
+
+.markdown-editor .CodeMirror:focus-within {
+  border-color: theme(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3) !important;
+}
+
+.markdown-editor .CodeMirror-cursor {
+  border-left: 2px solid theme(--color-primary) !important;
+}
+
+.markdown-editor .CodeMirror-selected {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+.markdown-editor .editor-toolbar {
+  background-color: theme(--color-card) !important;
+  border: 1px solid theme(--color-border) !important;
+  border-bottom: none !important;
+  border-radius: theme(--radius-md) theme(--radius-md) 0 0 !important;
+}
+
+.markdown-editor .editor-toolbar button {
+  background-color: transparent !important;
+  color: theme(--color-text-secondary) !important;
+  border: none !important;
+  transition: theme(--transition-normal) !important;
+}
+
+.markdown-editor .editor-toolbar button:hover {
+  background-color: theme(--color-background) !important;
+  color: theme(--color-text-primary) !important;
+}
+
+.markdown-editor .editor-toolbar button.active {
+  background-color: theme(--color-primary) !important;
+  color: white !important;
+}
+
+/* Koyu tema için SimpleMDE stilleri */
+@media (prefers-color-scheme: dark) {
+  .markdown-editor .CodeMirror {
+    background-color: theme(--color-card) !important;
+    border-color: theme(--color-border) !important;
+    color: theme(--color-text-primary) !important;
+  }
+
+  .markdown-editor .editor-toolbar {
+    background-color: theme(--color-card) !important;
+    border-color: theme(--color-border) !important;
+  }
+
+  .markdown-editor .editor-toolbar button:hover {
+    background-color: theme(--color-background) !important;
+  }
+}
