@@ -1,22 +1,38 @@
-import { Link } from "react-router-dom";
+import { Link, Links } from "react-router-dom";
+import { useGetPlaces } from "../../services/hooks";
 
 const Header = () => {
+  const { data } = useGetPlaces();
+
   return (
-    <header className="border-b border-zinc-300 shadow-sm">
-      <div className="container flex justify-between">
-        <h1 className="font-bold text-xl sm:text-2xl md:text-3xl">Tripster</h1>
-
-        <nav className="flex gap-4 items-center">
-          <Link to="/">Oteller (?)</Link>
-          <Link to="/" className="max-md:hidden">
-            Popüler
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-zinc-200 shadow-sm">
+      <div className="container flex justify-between items-center py-4">
+        <div className="flex gap-10 items-center">
+          <Link to="/" className="group">
+            <h1 className="font-bold text-xl sm:text-2xl md:text-3xl bg-linear-to-r from-blue-600 to-blue-500 bg-clip group-hover:scale-105 transition-all">
+              Tripster
+            </h1>
           </Link>
-          <Link to="/">Oluştur</Link>
-        </nav>
 
-        <div className="flex gap-2 items-center">
-          <button className="border border-blue-500 px-4 py-2 rounded-full max-md:hidden">Kayıt Ol</button>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-full">Giriş Yap</button>
+          <nav className="flex gap-6 items-center">
+            <Link to="/" className="nav-link group">
+              Oteller ({data?.length})
+              <span className="link-line" />
+            </Link>
+            <Link to="/" className="max-md:hidden nav-link group">
+              Popüler
+              <span className="link-line" />
+            </Link>
+            <Link to="/admin/create" className="nav-link group">
+              Oluştur
+              <span className="link-line" />
+            </Link>
+          </nav>
+        </div>
+
+        <div className="flex gap-3 items-center">
+          <button className="btn-secondary max-md:hidden">Kayıt Ol</button>
+          <button className="btn-primary">Giriş Yap</button>
         </div>
       </div>
     </header>

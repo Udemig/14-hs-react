@@ -1,7 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
+
+* {
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply bg-linear-to-br from-slate-50 to-blue-50/30;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}
 
 @layer components {
   .container {
     @apply max-w-[1440px] mx-auto p-5;
+  }
+
+  .nav-link {
+    @apply text-zinc-700 hover:text-blue-600 transition-all duration-300 font-medium relative;
+  }
+
+  .link-line {
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full;
+  }
+
+  .btn-primary {
+    @apply bg-linear-to-r from-blue-600 to-blue-500 text-white font-semibold py-2.5 px-6 rounded-lg shadow-blue-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-blue-500 text-blue-600 font-semibold py-2 px-5 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .hero {
+    background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.9) 0%,
+        rgba(30, 58, 138, 0.85) 50%,
+        rgba(59, 130, 246, 0.7) 100%
+      ),
+      url("/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 30% 50%,
+      rgba(65, 165, 250, 0.2) 0%,
+      transparent 50%
+    );
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1;
+  }
+
+  .field {
+    @apply flex flex-col gap-2;
+  }
+
+  .input {
+    @apply border-2 border-zinc-200 py-2.5 px-4 rounded-lg shadow-sm transition-all duration-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 focus:outline-none hover:border-zinc-300;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .bg-clip {
+    @apply bg-clip-text text-transparent;
   }
 }

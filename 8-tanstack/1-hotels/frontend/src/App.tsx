@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header";
 import Detail from "./pages/detail";
 import Home from "./pages/home";
+import FormPage from "./pages/form";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/place/:id" element={<Detail />} />
+            <Route path="/admin/create" element={<FormPage />} />
           </Routes>
         </main>
       </div>
