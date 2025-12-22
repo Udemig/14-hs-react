@@ -1,6 +1,23 @@
 import type { FC } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { INITIAL_VALUES, INPUT_FIELDS } from "../../constants";
+import { PLACE_SCHEMA } from "../../constants/schemas";
+import type { PlaceFormValues } from "../../types";
+import { useCreatePlace } from "../../services/hooks";
 
 const FormPage: FC = () => {
+  // useQuery: sayfa yüklendiği anda istek atar
+  // useMutation: istediğimiz zaman istek atar
+  // mutate: api isteğini atmaya yarar
+  const { isPending, mutate } = useCreatePlace();
+
+  // form gönderilince:
+  // e.preventDefault(): otomatik olarak çalışır
+  // handleSubmit fonksiyonu parametre olarak formdaki verileri alır
+  const handleSubmit = (values: PlaceFormValues) => {
+    mutate(values);
+  };
+
   return (
     <div className="max-w-3xl mx-auto">
       <div className="bg-white rounded-2xl shadow-xl border border-zinc-100 p-8 md:p-10">
@@ -14,6 +31,41 @@ const FormPage: FC = () => {
             ekleyebilirsiniz
           </p>
         </div>
+
+        <Formik
+          onSubmit={handleSubmit}
+          initialValues={INITIAL_VALUES}
+          validationSchema={PLACE_SCHEMA}
+        >
+          <Form className="grid gap-8">
+            {INPUT_FIELDS.map((item) => (
+              <div className="field relative">
+                <label
+                  htmlFor={item.name}
+                  className="font-semibold text-zinc-700 text-sm"
+                >
+                  {item.label}
+                </label>
+
+                <Field {...item} className="input" />
+
+                <ErrorMessage
+                  name={item.name}
+                  component="div"
+                  className="text-red-500 text-sm absolute -bottom-6 font-medium"
+                />
+              </div>
+            ))}
+
+            <button
+              disabled={isPending}
+              type="submit"
+              className="btn-primary mt-4 text-lg"
+            >
+              {isPending ? "Yükleniyor" : "Oluştur"}
+            </button>
+          </Form>
+        </Formik>
       </div>
     </div>
   );

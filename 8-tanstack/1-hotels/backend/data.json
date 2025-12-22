@@ -1,106 +1,212 @@
 [
   {
     "id": "sfdsdnfgj23kn423",
-    "name": "Mountain Retreat",
+    "name": "Mountain Retreat Chalet",
     "location": "Rize",
-    "address": "Highland Yolu 789",
-    "description": "Doğa severler için mükemmel, dağlarda huzurlu bir tatil yeri.",
+    "address": "Highland Yolu No:789, Çamlıhemşin",
+    "description": "Karadeniz'in eşsiz doğasında, dağ manzarası eşliğinde huzurlu ve izole bir konaklama deneyimi sunan butik dağ evi.",
     "amenities": [
       "Ücretsiz WiFi",
-      "Yürüyüş Parkurları",
       "Şömine",
-      "Evcil Hayvan Dostu"
+      "Doğa Yürüyüş Parkurları",
+      "Evcil Hayvan Dostu",
+      "Ücretsiz Otopark"
     ],
-    "rating": 4.5,
+    "rating": 4.6,
     "price_per_night": 120,
     "availability": true,
-    "image_url": "/pic2.webp"
+    "image_url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
   },
   {
     "id": "fdlgjmdfkgjmj24332423",
-    "name": "City Center Apartment",
+    "name": "City Center Modern Apartment",
     "location": "Ankara",
-    "address": "Capital Bulvarı 456",
-    "description": "Şehir merkezinde modern bir daire.",
+    "address": "Capital Bulvarı No:456, Çankaya",
+    "description": "Ankara şehir merkezinde, iş ve turistik seyahatler için ideal, modern ve tam donanımlı daire.",
     "amenities": [
       "Ücretsiz WiFi",
-      "Mutfak",
       "Klima",
-      "Çamaşır Makinesi/Kurutucu"
+      "Tam Donanımlı Mutfak",
+      "Çamaşır Makinesi",
+      "Asansör"
     ],
-    "rating": 4.2,
+    "rating": 4.3,
     "price_per_night": 90,
     "availability": false,
-    "image_url": "/pic3.jpg"
+    "image_url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267"
   },
   {
     "id": "dsgkmdfogu483973486",
-    "name": "Seaside Villa",
+    "name": "Seaside Luxury Villa",
     "location": "Antalya",
-    "address": "Plaj Yolu 321",
-    "description": "Özel plaj erişimi ve muhteşem deniz manzaralı güzel bir villa.",
+    "address": "Plaj Yolu No:321, Kaş",
+    "description": "Özel plaj erişimi, sonsuzluk havuzu ve panoramik deniz manzarası sunan lüks villa.",
     "amenities": [
       "Ücretsiz WiFi",
       "Özel Plaj",
-      "Yüzme Havuzu",
-      "Barbekü Alanı"
+      "Özel Yüzme Havuzu",
+      "Barbekü Alanı",
+      "Deniz Manzarası"
     ],
     "rating": 4.9,
     "price_per_night": 200,
     "availability": true,
-    "image_url": "/pic4.jpg"
+    "image_url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511"
   },
   {
     "id": "sdflmsdlkfj233984723984",
-    "name": "Budget Hostel",
+    "name": "Downtown Budget Hostel",
     "location": "İzmir",
-    "address": "Budget Sokak 654",
-    "description": "Şehir merkezinde, tüm cazibe merkezlerine yakın bütçe dostu bir hostel.",
+    "address": "Budget Sokak No:654, Konak",
+    "description": "Şehir merkezinde, ulaşımı kolay, ekonomik ve sosyal bir konaklama alternatifi.",
     "amenities": [
       "Ücretsiz WiFi",
       "Paylaşımlı Mutfak",
       "Çamaşırhane",
-      "Ortak Salon"
+      "Ortak Dinlenme Alanı"
     ],
-    "rating": 3.8,
+    "rating": 3.9,
     "price_per_night": 25,
     "availability": true,
-    "image_url": "/pic5.webp"
+    "image_url": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5"
   },
   {
-    "name": "Havuzlu Villa",
+    "id": "0d5d1ad2-b484-443f-b8c5-c578138d90e7",
+    "name": "Private Pool Villa Maltepe",
     "location": "İstanbul",
-    "address": "Maltepe",
-    "description": "Ferah bir villa..",
-    "amenities": ["sinema", "havuz", "wifi", "kahvaltı"],
-    "rating": 4.1,
+    "address": "Maltepe, İstanbul",
+    "description": "Şehrin içinde sakin bir atmosfer sunan, özel havuzlu ve geniş yaşam alanına sahip modern villa.",
+    "amenities": [
+      "Ücretsiz WiFi",
+      "Özel Yüzme Havuzu",
+      "Özel Sinema Odası",
+      "Kahvaltı Dahil",
+      "Bahçe"
+    ],
+    "rating": 4.2,
     "price_per_night": 350,
     "availability": true,
-    "id": "0d5d1ad2-b484-443f-b8c5-c578138d90e7",
-    "image_url": "https://picsum.photos/429/429"
+    "image_url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811"
   },
   {
-    "name": "Bungalov",
-    "description": "Bu villa ferah bir bahçeye sahip....",
-    "address": "1985 sk. no:98",
-    "location": "Muğla",
-    "price_per_night": "890",
-    "rating": "4.1",
-    "amenities": ["wifi", "bahçe", "havuz", "kahvaltı"],
-    "availability": true,
     "id": "df4f41a8-2962-4809-aa9e-62d8101b418f",
-    "image_url": "https://picsum.photos/438/438"
+    "name": "Garden Bungalow Retreat",
+    "location": "Muğla",
+    "address": "1985 Sk. No:98, Fethiye",
+    "description": "Doğayla iç içe, özel bahçeli ve sakin atmosferiyle öne çıkan konforlu bungalov.",
+    "amenities": [
+      "Ücretsiz WiFi",
+      "Bahçe",
+      "Yüzme Havuzu",
+      "Kahvaltı Dahil",
+      "Doğa Manzarası"
+    ],
+    "rating": 4.1,
+    "price_per_night": 890,
+    "availability": true,
+    "image_url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
   },
   {
-    "name": "Villa",
-    "description": "Bu villa ferah bir bahçeye sahip....",
-    "address": "1985 sk. no:98",
-    "location": "İzmir",
-    "price_per_night": "677",
-    "rating": "2.9",
-    "amenities": ["wifi", "havuz", "bahçe"],
+    "id": "a1b2c3d4-istanbul-boutique",
+    "name": "Historic Boutique Hotel",
+    "location": "İstanbul",
+    "address": "Galata Kulesi Sk. No:12, Beyoğlu",
+    "description": "Tarihi Galata bölgesinde, modern konfor ile nostaljik mimariyi birleştiren butik otel.",
+    "amenities": [
+      "Ücretsiz WiFi",
+      "Kahvaltı Dahil",
+      "24 Saat Resepsiyon",
+      "Şehir Manzarası"
+    ],
+    "rating": 4.4,
+    "price_per_night": 150,
     "availability": true,
-    "id": "9b199f4f-d337-4464-9993-bb2dcfe0e965",
-    "image_url": "https://picsum.photos/467/467"
+    "image_url": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb"
+  },
+  {
+    "id": "e5f6g7h8-cappadocia",
+    "name": "Cappadocia Cave Hotel",
+    "location": "Nevşehir",
+    "address": "Göreme Yolu No:45, Göreme",
+    "description": "Peri bacaları manzarasına sahip, geleneksel mağara odalarıyla eşsiz bir Kapadokya deneyimi.",
+    "amenities": [
+      "Ücretsiz WiFi",
+      "Kahvaltı Dahil",
+      "Teras",
+      "Balon Turu Organizasyonu"
+    ],
+    "rating": 4.8,
+    "price_per_night": 180,
+    "availability": true,
+    "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945"
+  },
+  {
+    "id": "i9j0k1l2-uludag",
+    "name": "Uludağ Ski Resort Hotel",
+    "location": "Bursa",
+    "address": "Kayak Merkezi Yolu No:8, Uludağ",
+    "description": "Kayak pistlerine yürüme mesafesinde, kış sporları tutkunları için ideal dağ oteli.",
+    "amenities": [
+      "Ücretsiz WiFi",
+      "Kayak Ekipmanı Deposu",
+      "Spa & Sauna",
+      "Kapalı Havuz"
+    ],
+    "rating": 4.5,
+    "price_per_night": 210,
+    "availability": false,
+    "image_url": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde"
+  },
+  {
+    "id": "m3n4o5p6-fethiye-glamping",
+    "name": "Luxury Glamping Fethiye",
+    "location": "Muğla",
+    "address": "Ovacık Mevkii, Fethiye",
+    "description": "Doğanın içinde, lüks çadır konseptiyle konforlu ve izole bir glamping deneyimi.",
+    "amenities": [
+      "Ücretsiz WiFi",
+      "Özel Banyo",
+      "Açık Havuz",
+      "Doğa Manzarası"
+    ],
+    "rating": 4.7,
+    "price_per_night": 140,
+    "availability": true,
+    "image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+  },
+  {
+    "id": "q7r8s9t0-bodrum-resort",
+    "name": "Bodrum Beach Resort & Spa",
+    "location": "Muğla",
+    "address": "Sahil Cad. No:77, Bodrum",
+    "description": "Denize sıfır konumu, spa hizmetleri ve geniş sosyal alanlarıyla premium tatil resortu.",
+    "amenities": [
+      "Ücretsiz WiFi",
+      "Özel Plaj",
+      "Spa & Wellness",
+      "Açık Havuz",
+      "Fitness Merkezi"
+    ],
+    "rating": 4.6,
+    "price_per_night": 260,
+    "availability": true,
+    "image_url": "https://images.unsplash.com/photo-1700588528641-04cb45c7de11?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1600"
+  },
+  {
+    "id": "u1v2w3x4-ayder",
+    "name": "Ayder Highland Wooden Lodge",
+    "location": "Rize",
+    "address": "Ayder Yaylası Yolu No:19",
+    "description": "Ayder Yaylası’nda ahşap mimarisiyle öne çıkan, doğa ile iç içe sıcak bir konaklama seçeneği.",
+    "amenities": [
+      "Ücretsiz WiFi",
+      "Şömine",
+      "Dağ Manzarası",
+      "Ücretsiz Otopark"
+    ],
+    "rating": 4.3,
+    "price_per_night": 110,
+    "availability": true,
+    "image_url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e"
   }
 ]

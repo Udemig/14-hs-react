@@ -1,5 +1,3 @@
-import { PlayCircle } from "lucide-react";
-
 export const SORT_OPTIONS = [
   {
     label: "En Ucuz",
@@ -68,3 +66,14 @@ export const INPUT_FIELDS = [
     type: "checkbox",
   },
 ];
+
+export const INITIAL_VALUES = {
+  name: "",
+  location: "",
+  address: "",
+  description: "",
+  amenities: "",
+  rating: undefined,
+  price_per_night: undefined,
+  availability: false,
+};

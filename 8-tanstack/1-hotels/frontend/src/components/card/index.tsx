@@ -20,7 +20,7 @@ const Card: FC<Props> = ({ place }) => {
         <img
           src={place.image_url}
           alt={place.name}
-          className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="size-full object-cover transition-transform duration-500 group-hover:scale-110 aspect-square"
         />
       </div>
 

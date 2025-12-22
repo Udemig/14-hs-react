@@ -27,7 +27,7 @@ const Rating: FC<Props> = ({ rating, expand = false }) => {
       : "Kötü";
 
   return (
-    <div>
+    <div className="flex items-center">
       <span className={`p-2 rounded-lg font-bold w-fit text-white ${color}`}>
         {rating}
       </span>
