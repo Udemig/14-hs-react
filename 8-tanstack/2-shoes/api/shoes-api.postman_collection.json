@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "e5c2e8a1-7b3f-4d4c-b8c8-9b2e4f8c5d6a",
+		"name": "Shoes E-commerce API",
+		"description": "API collection for Shoes E-commerce platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "register"]
+						},
+						"description": "Register a new user"
+					}
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if (jsonData.accessToken) {",
+									"    pm.environment.set('access_token', jsonData.accessToken);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "login"]
+						},
+						"description": "Login with user credentials"
+					}
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/auth/refresh",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "refresh"]
+						},
+						"description": "Get new access token using refresh token"
+					}
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/auth/logout",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "logout"]
+						},
+						"description": "Logout user and clear refresh token"
+					}
+				}
+			]
+		},
+		{
+			"name": "Shoes",
+			"item": [
+				{
+					"name": "Get All Shoes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/shoes",
+							"host": ["{{base_url}}"],
+							"path": ["api", "shoes"]
+						},
+						"description": "Get all shoes (protected route)"
+					}
+				},
+				{
+					"name": "Get Single Shoe",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/shoes/:id",
+							"host": ["{{base_url}}"],
+							"path": ["api", "shoes", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "shoe_id_here"
+								}
+							]
+						},
+						"description": "Get a single shoe by ID (protected route)"
+					}
+				},
+				{
+					"name": "Create Shoe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New Shoe Model\",\n    \"picture\": [\"/view-1.png\", \"/view-2.png\"],\n    \"description\": \"New shoe description\",\n    \"isNew\": true,\n    \"size\": \"42,43,44\",\n    \"color\": \"black,white\",\n    \"gender\": \"men\",\n    \"price\": 199.99\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/shoes",
+							"host": ["{{base_url}}"],
+							"path": ["api", "shoes"]
+						},
+						"description": "Create a new shoe (admin only)"
+					}
+				},
+				{
+					"name": "Update Shoe",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Shoe Name\",\n    \"price\": 249.99\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/shoes/:id",
+							"host": ["{{base_url}}"],
+							"path": ["api", "shoes", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "shoe_id_here"
+								}
+							]
+						},
+						"description": "Update a shoe by ID (admin only)"
+					}
+				},
+				{
+					"name": "Delete Shoe",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/shoes/:id",
+							"host": ["{{base_url}}"],
+							"path": ["api", "shoes", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "shoe_id_here"
+								}
+							]
+						},
+						"description": "Delete a shoe by ID (admin only)"
+					}
+				},
+				{
+					"name": "Search Shoes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gender\": \"men\",\n    \"color\": \"black\",\n    \"size\": \"42\",\n    \"minPrice\": 100,\n    \"maxPrice\": 300\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/shoes/search",
+							"host": ["{{base_url}}"],
+							"path": ["api", "shoes", "search"]
+						},
+						"description": "Search shoes with filters (protected route)"
+					}
+				}
+			]
+		}
+	]
+} 

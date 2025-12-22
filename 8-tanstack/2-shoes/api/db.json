@@ -1,0 +1,157 @@
+{
+  "shoes": [
+    {
+      "name": "NIKE AIR ZOOM PEGASUS 38",
+      "picture": ["/view-1.png", "/view-2.png", "/view-3.png", "/view-4.png"],
+      "description": "Pure Platinum / University Red <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "discount": 10,
+      "size": "38,40,41,42,44,46",
+      "color": "blue,gray",
+      "gender": "men",
+      "price": 150
+    },
+    {
+      "name": "PUMA ULTRARIDE",
+      "picture": ["/item-2.png", "/item-4.png", "/item-3.png", "/item-1.png"],
+      "description": "Black / White <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "38,39,40",
+      "color": "black,white",
+      "gender": "women",
+      "price": 200
+    },
+    {
+      "name": "NEW BALANCE FUELCELL PRISM",
+      "picture": ["/item-3.png", "/item-4.png", "/item-2.png", "/item-1.png"],
+      "description": "Light Aluminum / Black <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": false,
+      "size": "41,42,43",
+      "color": "light-gray,black",
+      "gender": "men",
+      "price": 250
+    },
+    {
+      "name": "ASICS GEL-NIMBUS 23",
+      "picture": ["/item-1.png", "/item-4.png", "/item-3.png", "/item-2.png"],
+      "description": "Midnight / Champagne <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": false,
+      "size": "40,42,43",
+      "color": "blue,brown",
+      "gender": "women",
+      "price": 300
+    },
+    {
+      "name": "SAUCONY ENDORPHIN SPEED",
+      "picture": ["/item-5.png", "/item-2.png", "/item-3.png", "/item-1.png"],
+      "description": "Black / Gold <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "38,40,42",
+      "color": "black,orange",
+      "gender": "men",
+      "price": 350
+    },
+    {
+      "name": "BROOKS GHOST 14",
+      "discount": 20,
+      "picture": ["/item-6.png", "/item-3.png", "/item-5.png", "/item-4.png"],
+      "description": "Blue / White <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "39,40,41",
+      "color": "blue,light-gray",
+      "gender": "women",
+      "price": 400
+    },
+    {
+      "name": "HOKA ONE ONE CLIFTON 8",
+      "picture": ["/item-4.png", "/item-3.png", "/item-2.png", "/item-1.png"],
+      "description": "Turquoise / Coral <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": false,
+      "size": "40,41,43",
+      "color": "green,orange",
+      "gender": "men",
+      "price": 450
+    },
+    {
+      "name": "MIZUNO WAVE RIDER 25",
+      "picture": ["/item-3.png", "/item-4.png", "/item-2.png", "/item-1.png"],
+      "description": "White / Silver <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "39,41,42,46",
+      "color": "gray,white",
+      "gender": "women",
+      "price": 500
+    },
+    {
+      "name": "UNDER ARMOUR HOVR MACHINA",
+      "discount": 40,
+      "picture": ["/item-5.png", "/item-2.png", "/item-3.png", "/item-1.png"],
+      "description": "Red / Black <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": false,
+      "size": "38,40,43,45",
+      "color": "red,black",
+      "gender": "men",
+      "price": 550
+    },
+    {
+      "name": "ALTRA TORIN 5",
+      "picture": ["/item-1.png", "/item-4.png", "/item-3.png", "/item-2.png"],
+      "description": "Gray / Blue <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "39,41,42,47",
+      "color": "gray,blue",
+      "gender": "women",
+      "price": 600
+    },
+    {
+      "name": "REEBOK NANO X1",
+      "picture": ["/item-3.png", "/item-1.png", "/item-4.png", "/item-2.png"],
+      "description": "Alloy / Black <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "38,39,40,45",
+      "color": "dark-gray,black",
+      "gender": "men",
+      "price": 650
+    },
+    {
+      "name": "SALOMON SPEEDCROSS 5",
+      "picture": ["/item-2.png", "/item-1.png", "/item-4.png", "/item-3.png"],
+      "description": "Slate / Sky <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "40,41,42,44",
+      "color": "gray,blue",
+      "gender": "women",
+      "price": 700
+    },
+    {
+      "name": "INOV-8 TERRAULTRA G 270",
+      "picture": ["/item-3.png", "/item-1.png", "/item-4.png", "/item-2.png"],
+      "description": "Teal / Lime <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "38,40,42,45",
+      "color": "blue,yellow",
+      "gender": "men",
+      "price": 750
+    },
+    {
+      "name": "MERRELL MOAB 2 VENT",
+      "picture": ["/item-4.png", "/item-1.png", "/item-3.png", "/item-2.png"],
+      "description": "Walnut / Gold <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "39,41,43,46",
+      "color": "brown,orange",
+      "gender": "women",
+      "price": 800
+    },
+    {
+      "name": "LA SPORTIVA BUSHIDO II",
+      "picture": ["/item-1.png", "/item-4.png", "/item-3.png", "/item-2.png"],
+      "description": "Yellow / Black <br/><br/> Özel indirimlerden hariç tutulmuştur. <br/><br/> Affirm, Klarna veya Afterpay ile faizsiz taksitler halinde ödeme yapın. <br/><br/> Ücretsiz kargo, iade ve değişim için adiClub'a katılın.<br/>",
+      "isNew": true,
+      "size": "38,39,40,46",
+      "color": "yellow,black",
+      "gender": "men",
+      "price": 850
+    }
+  ]
+}
