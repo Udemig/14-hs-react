@@ -1,22 +1,12 @@
 {
 	"info": {
-		"_postman_id": "e5c2e8a1-7b3f-4d4c-b8c8-9b2e4f8c5d6a",
+		"_postman_id": "fe74d140-216a-4499-95ec-48ba3078c9e6",
 		"name": "Shoes E-commerce API",
 		"description": "API collection for Shoes E-commerce platform",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26044730",
+		"_collection_link": "https://winter-flare-727325.postman.co/workspace/Other-Use~56ea97a3-e6f6-4d1c-8cdb-07ff53d831ec/collection/26044730-fe74d140-216a-4499-95ec-48ba3078c9e6?action=share&source=collection_link&creator=26044730"
 	},
-	"variable": [
-		{
-			"key": "base_url",
-			"value": "http://localhost:5000",
-			"type": "string"
-		},
-		{
-			"key": "access_token",
-			"value": "",
-			"type": "string"
-		}
-	],
 	"item": [
 		{
 			"name": "Authentication",
@@ -33,15 +23,22 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123\"\n}"
+							"raw": "{    \n    \"firstName\": \"Furkan\",\n    \"lastName\": \"Evin\",\n    \"email\": \"user2@example.com\",\n    \"password\": \"password123\"\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/api/auth/register",
-							"host": ["{{base_url}}"],
-							"path": ["api", "auth", "register"]
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
 						},
 						"description": "Register a new user"
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Login User",
@@ -73,11 +70,18 @@
 						},
 						"url": {
 							"raw": "{{base_url}}/api/auth/login",
-							"host": ["{{base_url}}"],
-							"path": ["api", "auth", "login"]
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
 						},
 						"description": "Login with user credentials"
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Refresh Token",
@@ -86,11 +90,18 @@
 						"header": [],
 						"url": {
 							"raw": "{{base_url}}/api/auth/refresh",
-							"host": ["{{base_url}}"],
-							"path": ["api", "auth", "refresh"]
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
 						},
 						"description": "Get new access token using refresh token"
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Logout",
@@ -104,11 +115,49 @@
 						],
 						"url": {
 							"raw": "{{base_url}}/api/auth/logout",
-							"host": ["{{base_url}}"],
-							"path": ["api", "auth", "logout"]
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
 						},
 						"description": "Logout user and clear refresh token"
-					}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \n    \"firstName\": \"Furkan\",\n    \"lastName\": \"Evin\",\n    \"email\": \"user1@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -127,11 +176,17 @@
 						],
 						"url": {
 							"raw": "{{base_url}}/api/shoes",
-							"host": ["{{base_url}}"],
-							"path": ["api", "shoes"]
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"shoes"
+							]
 						},
 						"description": "Get all shoes (protected route)"
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Get Single Shoe",
@@ -145,8 +200,14 @@
 						],
 						"url": {
 							"raw": "{{base_url}}/api/shoes/:id",
-							"host": ["{{base_url}}"],
-							"path": ["api", "shoes", ":id"],
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"shoes",
+								":id"
+							],
 							"variable": [
 								{
 									"key": "id",
@@ -155,7 +216,8 @@
 							]
 						},
 						"description": "Get a single shoe by ID (protected route)"
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Create Shoe",
@@ -177,11 +239,17 @@
 						},
 						"url": {
 							"raw": "{{base_url}}/api/shoes",
-							"host": ["{{base_url}}"],
-							"path": ["api", "shoes"]
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"shoes"
+							]
 						},
 						"description": "Create a new shoe (admin only)"
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Update Shoe",
@@ -203,8 +271,14 @@
 						},
 						"url": {
 							"raw": "{{base_url}}/api/shoes/:id",
-							"host": ["{{base_url}}"],
-							"path": ["api", "shoes", ":id"],
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"shoes",
+								":id"
+							],
 							"variable": [
 								{
 									"key": "id",
@@ -213,7 +287,8 @@
 							]
 						},
 						"description": "Update a shoe by ID (admin only)"
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Delete Shoe",
@@ -227,8 +302,14 @@
 						],
 						"url": {
 							"raw": "{{base_url}}/api/shoes/:id",
-							"host": ["{{base_url}}"],
-							"path": ["api", "shoes", ":id"],
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"shoes",
+								":id"
+							],
 							"variable": [
 								{
 									"key": "id",
@@ -237,7 +318,8 @@
 							]
 						},
 						"description": "Delete a shoe by ID (admin only)"
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Search Shoes",
@@ -259,13 +341,32 @@
 						},
 						"url": {
 							"raw": "{{base_url}}/api/shoes/search",
-							"host": ["{{base_url}}"],
-							"path": ["api", "shoes", "search"]
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"shoes",
+								"search"
+							]
 						},
 						"description": "Search shoes with filters (protected route)"
-					}
+					},
+					"response": []
 				}
 			]
 		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string"
+		}
 	]
-} 
+}

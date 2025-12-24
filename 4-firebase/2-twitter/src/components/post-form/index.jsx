@@ -11,6 +11,7 @@ import Preview from "./preview";
 const PostForm = ({ user }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [preview, setPreview] = useState(null);
+  const [previewType, setPreviewType] = useState(null);
   const fileInputRef = useRef(null);
 
   // form gönderilince
@@ -30,12 +31,23 @@ const PostForm = ({ user }) => {
       // resmi storage'a kaydet
       const fileUrl = await uploadFile(file);
 
+      // dosya tipini belirle (image, video, audio)
+      let mediaType = "image";
+      if (file) {
+        if (file.type.startsWith("video")) mediaType = "video";
+        if (file.type.startsWith("audio")) mediaType = "audio";
+      }
+
       // kolleksiyonun referansını al
       const collectionRef = collection(db, "tweets");
 
       // belgeyi kolleksiyona kaydet
       await addDoc(collectionRef, {
-        content: { text, image: fileUrl },
+        content: {
+          text,
+          image: fileUrl, // Backward compatibility + generic url field
+          mediaType: file ? mediaType : null,
+        },
         likes: [],
         isEdited: false,
         user: {
@@ -50,6 +62,7 @@ const PostForm = ({ user }) => {
       toast.success("Tweet gönderildi");
       e.target.reset();
       setPreview(null);
+      setPreviewType(null);
     } catch (error) {
       toast.error("Hata! " + error.message);
     } finally {
@@ -57,10 +70,19 @@ const PostForm = ({ user }) => {
     }
   };
 
-  // resim değişince çalışır
-  const handleImageChange = (e) => {
+  // dosya değişince çalışır
+  const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      setPreview(URL.createObjectURL(e.target.files[0]));
+      const file = e.target.files[0];
+      setPreview(URL.createObjectURL(file));
+
+      if (file.type.startsWith("video")) {
+        setPreviewType("video");
+      } else if (file.type.startsWith("audio")) {
+        setPreviewType("audio");
+      } else {
+        setPreviewType("image");
+      }
     }
   };
 
@@ -68,6 +90,7 @@ const PostForm = ({ user }) => {
   const cancelPreview = () => {
     // önizlemeyi kaldır
     setPreview(null);
+    setPreviewType(null);
 
     // file input'uda seçilen resmi kaldır
     if (fileInputRef.current) {
@@ -82,9 +105,17 @@ const PostForm = ({ user }) => {
       <form onSubmit={handleSubmit} className="w-full pt-1">
         <TextArea />
 
-        <Preview url={preview} cancelPreview={cancelPreview} />
+        <Preview
+          url={preview}
+          type={previewType}
+          cancelPreview={cancelPreview}
+        />
 
-        <FormActions isLoading={isLoading} handleImageChange={handleImageChange} fileInputRef={fileInputRef} />
+        <FormActions
+          isLoading={isLoading}
+          handleImageChange={handleFileChange}
+          fileInputRef={fileInputRef}
+        />
       </form>
     </div>
   );

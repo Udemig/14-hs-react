@@ -1,44 +1,59 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const shoeSchema = new mongoose.Schema({
+const shoeSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: true,
-        trim: true
+      type: String,
+      required: true,
+      trim: true,
     },
     picture: {
-        type: [String],
-        required: true
+      type: [String],
+      required: true,
     },
     description: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     isNew: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false,
     },
     discount: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     size: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     color: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     gender: {
-        type: String,
-        enum: ['men', 'women'],
-        required: true
+      type: String,
+      enum: ["men", "women"],
+      required: true,
     },
     price: {
-        type: Number,
-        required: true
-    }
-}, { timestamps: true });
+      type: Number,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+    virtuals: false,
+    toJSON: {
+      transform: (doc, ret) => {
+        ret.id = ret._id;
+        delete ret.__v;
+        delete ret._id;
 
-module.exports = mongoose.model('Shoe', shoeSchema); 
+        return ret;
+      },
+    },
+  }
+);
+
+module.exports = mongoose.model("Shoe", shoeSchema);

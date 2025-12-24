@@ -8,9 +8,9 @@ const { images } = require("../constants");
 router.get("/", protect, async (req, res) => {
   try {
     const shoes = await Shoe.find();
-    res.json(shoes);
+    res.json({ message: "Tüm ayakkabılar başarıyla alındı", data: shoes });
   } catch (error) {
-    res.status(500).json({ message: "Error fetching shoes" });
+    res.status(500).json({ message: "Ayakkabılar alınamadı" });
   }
 });
 
@@ -19,34 +19,42 @@ router.get("/:id", protect, async (req, res) => {
   try {
     const shoe = await Shoe.findById(req.params.id);
     if (!shoe) {
-      return res.status(404).json({ message: "Shoe not found" });
+      return res.status(404).json({ message: "Ürün bulunamadı" });
     }
-    res.json(shoe);
+    res.json({ message: "Ürün başarıyla alındı", data: shoe });
   } catch (error) {
-    res.status(500).json({ message: "Error fetching shoe" });
+    res.status(500).json({ message: "Ürün alınamadı" });
   }
 });
 
 // Create shoe (admin only)
 router.post("/", protect, admin, async (req, res) => {
   try {
-    const shoe = await Shoe.create({ ...req.body, picture: images.slice(0, 4) });
-    res.status(201).json(shoe);
+    const shoe = await Shoe.create({
+      ...req.body,
+      picture: images.slice(0, 4),
+    });
+    res.status(201).json({ message: "Ürün başarıyla oluşturuldu", data: shoe });
   } catch (error) {
-    res.status(500).json({ message: "Error creating shoe" });
+    res.status(500).json({ message: "Ürün oluşturulamadı" });
   }
 });
 
 // Update shoe (admin only)
 router.put("/:id", protect, admin, async (req, res) => {
   try {
-    const shoe = await Shoe.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+    const shoe = await Shoe.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
     if (!shoe) {
-      return res.status(404).json({ message: "Shoe not found" });
+      return res.status(404).json({ message: "Ürün bulunamadı" });
     }
-    res.json(shoe);
+
+    res.json({ message: "Ürün başarıyla güncellendi", data: shoe });
   } catch (error) {
-    res.status(500).json({ message: "Error updating shoe" });
+    res.status(500).json({ message: "Ürün güncellenemedi" });
   }
 });
 
@@ -55,11 +63,11 @@ router.delete("/:id", protect, admin, async (req, res) => {
   try {
     const shoe = await Shoe.findByIdAndDelete(req.params.id);
     if (!shoe) {
-      return res.status(404).json({ message: "Shoe not found" });
+      return res.status(404).json({ message: "Ürün bulunamadı" });
     }
-    res.json({ message: "Shoe deleted successfully" });
+    res.json({ message: "Ürün başarıyla silindi", data: null });
   } catch (error) {
-    res.status(500).json({ message: "Error deleting shoe" });
+    res.status(500).json({ message: "Ürün silinemedi" });
   }
 });
 
@@ -79,9 +87,9 @@ router.post("/search", protect, async (req, res) => {
     }
 
     const shoes = await Shoe.find(query);
-    res.json(shoes);
+    res.json({ message: "Ürünler başarıyla aranıldı", data: shoes });
   } catch (error) {
-    res.status(500).json({ message: "Error searching shoes" });
+    res.status(500).json({ message: "Ürünler aranamadı" });
   }
 });
 

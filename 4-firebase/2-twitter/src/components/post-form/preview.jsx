@@ -1,6 +1,6 @@
 import { IoMdClose } from "react-icons/io";
 
-const Preview = ({ url, cancelPreview }) => {
+const Preview = ({ url, type, cancelPreview }) => {
   if (!url) return;
 
   return (
@@ -12,7 +12,13 @@ const Preview = ({ url, cancelPreview }) => {
       >
         <IoMdClose />
       </button>
-      <img src={url} alt="preview" className="rounded-xl" />
+      {type === "image" && (
+        <img src={url} alt="preview" className="rounded-xl" />
+      )}
+      {type === "video" && (
+        <video controls src={url} className="rounded-xl w-full" />
+      )}
+      {type === "audio" && <audio controls src={url} className="w-full mt-4" />}
     </div>
   );
 };

@@ -17,6 +17,7 @@ const FormActions = ({ isLoading, handleImageChange, fileInputRef }) => {
             id="image"
             name="image"
             type="file"
+            accept="image/*, video/*, audio/*"
             className="hidden"
           />
         </button>
