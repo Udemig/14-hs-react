@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import type {
   LoginFormValues,
   RegisterFormValues,
@@ -7,7 +7,7 @@ import type {
 } from "../types";
 import api from "./api";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { AxiosError } from "axios";
 
 // service nesnesi içersinde:
@@ -50,6 +50,31 @@ export const useLogin = () => {
     },
     onError: (error: AxiosError<Response<string>>) => {
       toast.error(error.response?.data?.message || "Bir hata oluştu");
+    },
+  });
+};
+
+// profil bilgilier
+export const useProfile = () => {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["profile"],
+    queryFn: () => authService.me(),
+    select: (res) => res.data.data,
+    retry: false,
+  });
+
+  return { user: data, isLoading, error };
+};
+
+// çıkış yapma
+export const useLogout = () => {
+  const navigate = useNavigate();
+
+  return useMutation({
+    mutationFn: () => authService.logout(),
+    onSuccess: () => {
+      toast.warning("Oturum kapatıldı");
+      navigate("/login");
     },
   });
 };
