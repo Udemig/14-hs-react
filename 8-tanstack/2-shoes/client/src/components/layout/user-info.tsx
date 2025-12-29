@@ -15,10 +15,7 @@ const UserInfo: FC = () => {
         <Search />
       </button>
 
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="relative cursor-pointer"
-      >
+      <button onClick={() => setIsOpen(!isOpen)} className="relative cursor-pointer">
         <User />
 
         {isOpen && user && (
@@ -30,15 +27,11 @@ const UserInfo: FC = () => {
 
             {user.role === "admin" && (
               <button className="header-button">
-                <Link to="/dashboard">Admin Paneli</Link>
+                <Link to="/admin/dashboard">Admin Paneli</Link>
               </button>
             )}
 
-            <button
-              disabled={isPending}
-              onClick={() => mutate()}
-              className="header-button"
-            >
+            <button disabled={isPending} onClick={() => mutate()} className="header-button">
               Çıkış Yap
             </button>
           </div>

@@ -12,7 +12,7 @@ const List: FC = () => {
   if (error) return <Error message={error.message} refetch={refetch} />;
 
   return (
-    <div className="flex flex-col gap-5 my-10">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-6 my-10">
       {data?.map((product) => (
         <Card key={product.id} product={product} />
       ))}

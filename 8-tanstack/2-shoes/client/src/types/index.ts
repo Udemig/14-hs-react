@@ -42,3 +42,15 @@ export interface Product {
   updatedAt: string;
   id: string;
 }
+
+// Formdan Gelen Verinin Tipi
+export interface ProductValues {
+  name: string;
+  price: number;
+  discount: number;
+  color: string;
+  size: string;
+  description: string;
+  isNew: boolean;
+  gender: "men" | "women";
+}

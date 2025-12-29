@@ -36,6 +36,10 @@
   .header-button {
     @apply px-6 py-2 hover:bg-zinc-500/30 transition cursor-pointer whitespace-nowrap w-full;
   }
+
+  .footer-button {
+    @apply bg-black p-4 rounded-lg;
+  }
 }
 
 @layer utilities {
