@@ -12,7 +12,18 @@ export const LOGIN_INITIAL_VALUES = {
   password: "",
 };
 
-export const SIZES = ["38", "39", "40", "41", "42", "43", "44", "45", "46", "47"];
+export const SIZES = [
+  "38",
+  "39",
+  "40",
+  "41",
+  "42",
+  "43",
+  "44",
+  "45",
+  "46",
+  "47",
+];
 
 export const INPUT_ARRAY = [
   {
@@ -49,5 +60,12 @@ export const INPUT_ARRAY = [
     label: "Yeni Ürün",
     name: "isNew",
     type: "checkbox",
+    required: false,
+  },
+  {
+    label: "Cinsiyet",
+    name: "gender",
+    type: "radio",
+    options: ["men", "women", "unisex"],
   },
 ];

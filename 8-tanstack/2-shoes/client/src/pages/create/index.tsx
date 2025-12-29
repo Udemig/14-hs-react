@@ -9,14 +9,19 @@ const Create: FC = () => {
 
   return (
     <div className="max-w-250 mx-auto">
-      <Link to="/admin/dashboard" className="text-my-blue flex items-center gap-2 mb-2">
+      <Link
+        to="/admin/dashboard"
+        className="text-my-blue flex items-center gap-2 mb-2"
+      >
         <ArrowLeft />
         <span>Geri</span>
       </Link>
 
-      <h1 className="text-2xl lg:text-3xl font-semibold mb-5">Yeni Ürün Oluştur</h1>
+      <h1 className="text-2xl lg:text-3xl font-semibold mb-5">
+        Yeni Ürün Oluştur
+      </h1>
 
-      <Form />
+      <Form mutate={mutate} isPending={isPending} />
     </div>
   );
 };
