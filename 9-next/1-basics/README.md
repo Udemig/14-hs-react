@@ -76,7 +76,22 @@
 - `layout.jsx` > sayfa gruplarının ortak özelliklerini tanımlamak için
 - `template.jsx` > sayfa gruplarının ortak özelliklerini tanımlamak için
 - `not-found.jsx` > 404 sayfasını özelleştirmek için
-- `loading.jsx` >
-- `error.jsx` >
+
+- `loading.jsx`
+- - bir bileşen asenkron bir işlemi beklediği süre boyunca otomatik olarak ekrana gelir
+- - loading dosyasını oluşturduğumuz klasöre göre etki ettiği sayfalar değişir
+
+- `error.jsx`
+- - bir bileşen içerisinde hata olduğunda otomatik olarak ekrana gelir
+- - örneğin bir api isteği başarısız olduğunda error componentını görürüz
+- - error dosyasını oluşturduğumuz klasöre göre etki ettiği sayfalar değişir
+- - sayfanın üst kısmına `use client` yazmak zorunlu
+- - error ve reset propları alır
 
 # Metadata
+
+- Klasik react projelerinde bütün sayfalara ortak metadata tanımı yapabiliyorduk index.html üzerinden ama her sayfaya ayrı metadata tanımı söz konusu değildi bundan dolayı seo anlamında - yazıyordu.
+
+- Next.js'de react'dan farklı olarak her sayfaya ayrı bir metadata tanımlama şansımız var bundan dolayı SEO anlamında klasik bir react projesine göre çok daha iyi bir puan elde ederiz.
+
+- Bir sayfanın metadatasını tanımlamak istiyorsak o sayfada bir `metadata` isminde nesne tanımlayıp export ederiz

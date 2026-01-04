@@ -1,5 +1,10 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Ürünler",
+  description: "En iyi ürünler bizde",
+};
+
 const ProductPage = () => {
   return (
     <div className="page">

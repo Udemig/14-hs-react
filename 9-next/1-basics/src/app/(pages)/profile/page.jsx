@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Profil",
+  description: "Amazondaki profilini görüntüle!!",
+};
+
 const ProfilePage = () => {
   return (
     <div className="page">
