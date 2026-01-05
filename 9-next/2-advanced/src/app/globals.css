@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* fontları tailwinde tanıttık */
+@theme {
+  --font-oswald: var(--font-oswald);
+  --font-skynight: var(--font-skynight);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
