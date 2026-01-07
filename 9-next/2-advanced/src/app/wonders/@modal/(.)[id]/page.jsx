@@ -3,13 +3,12 @@
 import { data } from "@/utils/constants";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
-const Page = async ({ params }) => {
-  const router = useRouter();
-
+const Page = async () => {
   // url'den id parametresini al
-  const { id } = await params;
+  const { id } = useParams();
+  const router = useRouter();
 
   // data dizisinden modalda gösterilecek veriyi bul2
   const item = data.find((item) => item.id === id);

@@ -5,8 +5,7 @@ import LocalFont from "next/font/local";
 
 // remote font import
 import { Oswald } from "next/font/google";
-import Link from "next/link";
-import { fetchRecipes } from "@/utils/api";
+import Header from "@/components/header";
 
 // remote font kurulum
 const oswald = Oswald({
@@ -26,17 +25,10 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const data = await fetchRecipes();
-
   return (
     <html lang="en">
       <body className={`${oswald.variable} ${skynight.variable} antialiased flex flex-col`}>
-        <header className="border-b p-4 space-x-10 flex justify-center">
-          <Link href="/about">Hakkımızda (S)</Link>
-          <Link href="/contact">İletişim (C)</Link>
-          <Link href="/recipes-client">Tarifler (C)</Link>
-          <Link href="/recipes-server">Tarifler - {data.recipes.length} (S)</Link>
-        </header>
+        <Header />
 
         <main className="flex-1 text-3xl p-10 text-center my-5">{children}</main>
       </body>

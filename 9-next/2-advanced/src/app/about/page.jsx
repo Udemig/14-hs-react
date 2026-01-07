@@ -1,10 +1,13 @@
 // import { useState } from "react";
 
+import { redirect } from "next/navigation";
 import ClientComponent from "./client-component";
 import ServerComponent from "./server-component";
 
 const About = () => {
-  console.log("Hakkımızda sayfası render oldu");
+  if ("oturum kapalıysa") {
+    // redirect("/");
+  }
 
   return (
     <div className="space-y-10 border border-blue-500 p-10">

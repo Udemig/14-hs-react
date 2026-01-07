@@ -102,4 +102,80 @@
 - - api'a gereksiz istekler gitmez > daha az maaliyet
 - - asenkron state'ler için context redux tanstack gibi yöntemlere gerek kalmaz
 
-## TODO: CACHE SÜRESİ AYARLAMA
+- Next.js varsayılan olarak bütün api isteklerini cache'ler ama bazen biz cachelemesini önlemek isteyebiliriz. Bu durumda fetch methodunun ayarlarını buna göre yaparız.
+
+# Next.js Methdoları
+
+## useRouter
+
+- sadece `client` component'larda kullanabilirsiniz
+- proje içerisinde yönlendirme yapmak için kullanılır
+- back() | forward() | push() | reload() methodları vardır
+
+## redirect
+
+- sadece `server` component'larda kullanabilirsiniz
+- proje içerisinde yönlendirme yapmak için kullanılır
+- genelde yetkilendirme için kullanırız
+
+## notFound
+
+- hem `client` hem de `server` component'larda kullanabilirsiniz
+- ekrana 404 sayfasını basar
+
+## usePathname
+
+- sadece `client` component'larda kullanabilirsiniz
+- url'deki kullanıcnın bulunduğu yolu getirir
+
+## useParams
+
+- sadece `client` component'larda kullanabilirsiniz
+- url'deki parametrelere erişmemizi sağlar
+- server component'larda ise parametreleri zaten prop olarak alıyoruz.
+
+## useSearchParams
+
+- sadece `client` component'larda kullanabilirsiniz
+- url'deki query parametrelerine erişmemizi sağlar
+- server component'larda ise query parametreleri zaten prop olarak alıyoruz.
+
+# Form
+
+- Normal şartlarda formlarda bolca kullanıcı etkileşmi izlmemiz gerektiğinden form'ları client component olarak oluşturmamız gerekir.
+- Ama server component client component'lara göre daha avantajlı olduğundan dolayı server action yöntemini kullanarak form içerisindeki veriye erişme ve orm gönderilince fonksiyon çalıştırma işini server component'lardada yapabiliyoruz.
+- Eğer formda hata yönetimi istiyorsanız server action kullanma şansınız yok o zaman mutalaka client component olmalı
+
+# Static Site Generation (SSG)
+
+- SSG, next.js'in build (derleme) sırasında sayfaları önceden html olarak üretip sunucuda saklamasıdır.
+
+- Kullanıcı siteyi ziyaret ettiğinde sayfalar anında ve çok hılzı bir şekilde sunulur çünkü önceden hazırlanmıştır
+
+## Static Sayfa
+
+- Build anında html'i hazırlanıp sunucuda saklanır, kullanıcı sayfaya girdiği anda tekrar hazırlanmadan direkt kullanıcıya sunulur
+- Varsayılan olarak url parametresi olmayan bütün sayfalar statik sayfa olur
+
+## Dinamik Sayfa
+
+- Kullanıcı sayfaya girdiği anda html'i hazırlanıp sunulan sayfalardır.
+- Varsayılan olarak url'de parametresi olan sayfalar dinamik sayfa olur
+
+## Static Bir Sayfayı Dinamik Hale Getirme (revalidate | dynamic)
+
+- Next.js varsayılan olarak parametreye sahip olmayan bütün sayfaları statik yapar.
+- Ama bazen biz bu sayfaların içeriklerinin güncelleniceğinden tamamen statik olmasını istemeyiz.
+- Bu durumda revalidate aracılığıyla static sayfayı belirli aralıklara yeniden oluşturabilir veya dynamic aracılığı ile tamamen dinamik hale getirebiliriz
+
+## Dinamik Bir Sayfayı Statik Hale Getirme (generateStaticParams)
+
+- generateStaticParams, dinamik bir sayfaı statik hale getirir.
+- build sırasında çağrılan dinamik route'lar için bir parametre listesi return ederiz ([{id:"1"},{id:"2},{id:"3"}])
+- Next.js'de bu listedeki herbir parametre için o detay sayfasının statik bir versiyonunu oluşturur
+- Genelde içeriği çok değişmeyen detay sayfalarında (blog detay, portfolya projesi, tarif detay) veya bir çok ürüne sahip bir sitenin sadece popüler ürünleri için kullanabiliriz.
+
+# Fullstack Framework
+
+- Next.js ile hem frontend hem backend kodlarını tek bir proje içerisinde yazabiliyoruz.
+- Backend route'u oluşturmak için api isminde bir klasör oluşturmak yeterlidir.
