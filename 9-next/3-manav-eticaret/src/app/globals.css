@@ -26,4 +26,12 @@ body {
   .header-link {
     @apply text-lg relative text-gray-700 hover:text-green-600 transition flex items-center gap-2;
   }
+
+  .counter-button {
+    @apply cursor-pointer p-3 text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .order-button {
+    @apply flex-1 flex items-center justify-center gap-2 text-green-600 border border-green-600 px-4 py-2 rounded-md hover:bg-green-100 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed;
+  }
 }

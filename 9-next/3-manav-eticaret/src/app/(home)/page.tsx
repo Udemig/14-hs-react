@@ -1,6 +1,8 @@
 import Features from "@/components/home/features";
 import Hero from "@/components/home/hero";
-import { FC } from "react";
+import Products from "@/components/home/products";
+import { FC, Suspense } from "react";
+import Loading from "./loading";
 
 const Page: FC = () => {
   return (
@@ -8,6 +10,10 @@ const Page: FC = () => {
       <Hero />
 
       <Features />
+
+      <Suspense fallback={<Loading />}>
+        <Products />
+      </Suspense>
     </div>
   );
 };
