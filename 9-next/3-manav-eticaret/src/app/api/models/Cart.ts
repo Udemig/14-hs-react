@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import { TiScissors } from "react-icons/ti";
 
 export interface ICartItem {
   grocery: Schema.Types.ObjectId;
@@ -30,13 +31,13 @@ const cartSchema = new Schema<ICart>({
 });
 
 // Sepet toplam tutarını hesapla
-cartSchema.pre("save", function (next) {
-  if (this.isModified("items")) {
-    this.totalAmount = this.items.reduce((total, item) => {
-      return total + item.price * item.quantity;
-    }, 0);
-  }
-  // @ts-ignore
+cartSchema.pre("save", function (next: any) {
+  const items = this.items || [];
+
+  this.totalAmount = items.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
   next();
 });
 

@@ -10,16 +10,15 @@ export async function GET(req: Request) {
     const userId = searchParams.get("userId");
 
     if (!userId) {
-      return NextResponse.json(
-        { message: "Kullanıcı ID gerekli" },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: "Kullanıcı ID gerekli" }, { status: 400 });
     }
 
     await connectMongo();
 
     // Kullanıcının sepetini bul
     let cart = await Cart.findOne({ userId }).populate("items.grocery");
+
+    console.log(cart);
 
     if (!cart) {
       // Sepet bulunamadıysa boş bir sepet oluştur
@@ -33,10 +32,7 @@ export async function GET(req: Request) {
     return NextResponse.json({ cart });
   } catch (error) {
     console.log(error);
-    return NextResponse.json(
-      { message: "Sepet bilgileri alınamadı" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Sepet bilgileri alınamadı" }, { status: 500 });
   }
 }
 
@@ -47,10 +43,7 @@ export async function POST(req: Request) {
     const { userId, groceryId, quantity } = data;
 
     if (!userId || !groceryId) {
-      return NextResponse.json(
-        { message: "Kullanıcı ID ve Ürün ID gerekli" },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: "Kullanıcı ID ve Ürün ID gerekli" }, { status: 400 });
     }
 
     await connectMongo();
@@ -84,16 +77,13 @@ export async function POST(req: Request) {
       });
     } else {
       // Sepet varsa, ürün sepette var mı kontrol et
-      const itemIndex = cart.items.findIndex(
-        (item: any) => item.grocery.toString() === groceryId
-      );
+      const itemIndex = cart.items.findIndex((item: any) => item.grocery.toString() === groceryId);
 
       console.log("deneme", cart.items, groceryId);
 
       if (itemIndex > -1) {
         // Ürün sepette varsa, miktarı güncelle
-        cart.items[itemIndex].quantity =
-          cart.items[itemIndex].quantity + (quantity || 1);
+        cart.items[itemIndex].quantity = cart.items[itemIndex].quantity + (quantity || 1);
       } else {
         // Ürün sepette yoksa, ekle
         cart.items.push({
@@ -108,9 +98,7 @@ export async function POST(req: Request) {
     await cart.save();
 
     // Populte edilmiş sepeti geri dön
-    const populatedCart = await Cart.findById(cart._id).populate(
-      "items.grocery"
-    );
+    const populatedCart = await Cart.findById(cart._id).populate("items.grocery");
 
     return NextResponse.json({
       message: "Ürün sepete eklendi",
@@ -118,10 +106,7 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.log(error);
-    return NextResponse.json(
-      { message: "Ürün sepete eklenemedi" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Ürün sepete eklenemedi" }, { status: 500 });
   }
 }
 
@@ -132,26 +117,17 @@ export async function DELETE(req: Request) {
     const userId = searchParams.get("userId");
 
     if (!userId) {
-      return NextResponse.json(
-        { message: "Kullanıcı ID gerekli" },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: "Kullanıcı ID gerekli" }, { status: 400 });
     }
 
     await connectMongo();
 
     // Kullanıcının sepetini sil
-    await Cart.findOneAndUpdate(
-      { userId },
-      { $set: { items: [], totalAmount: 0 } }
-    );
+    await Cart.findOneAndUpdate({ userId }, { $set: { items: [], totalAmount: 0 } });
 
     return NextResponse.json({ message: "Sepet boşaltıldı" });
   } catch (error) {
     console.log(error);
-    return NextResponse.json(
-      { message: "Sepet boşaltılamadı" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Sepet boşaltılamadı" }, { status: 500 });
   }
 }

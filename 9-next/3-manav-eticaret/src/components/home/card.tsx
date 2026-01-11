@@ -36,7 +36,7 @@ const Card: FC<Props> = ({ product }) => {
         <div className="flex justify-between items-center mt-2">
           <p className="text-green-700 font-bold text-2xl">{product.price} ₺</p>
 
-          <CardAction productId={product._id} />
+          <CardAction productId={product._id} stock={product.stock} />
         </div>
       </div>
     </div>

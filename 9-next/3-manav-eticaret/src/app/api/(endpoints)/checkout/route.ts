@@ -37,10 +37,7 @@ export async function POST(req: Request) {
       return handleCartCheckout(data);
     }
 
-    return NextResponse.json(
-      { message: "Geçersiz istek formatı" },
-      { status: 400 }
-    );
+    return NextResponse.json({ message: "Geçersiz istek formatı" }, { status: 400 });
   } catch (error) {
     console.log("HATA!:", error);
     return NextResponse.json({ message: "Bir hata oluştu" }, { status: 500 });
@@ -68,19 +65,14 @@ async function handleSingleItemCheckout(data: any) {
   }
 
   if (!stripe) {
-    return NextResponse.json(
-      { message: "Ödeme sistemi şu anda kullanılamıyor" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Ödeme sistemi şu anda kullanılamıyor" }, { status: 500 });
   }
 
   // Stripe katalogunda aktif ürünleri al
   const stripeProducts = await getActiveProducts();
 
   // Satın alınacak ürün katalogda var mı kontrol et
-  let foundProduct = stripeProducts.find(
-    (product: any) => product.metadata.product_id === String(grocery)
-  );
+  let foundProduct = stripeProducts.find((product: any) => product.metadata.product_id === String(grocery));
 
   // Eğer katalogda yoksa ürünü kataloga ekle
   if (!foundProduct) {
@@ -146,10 +138,7 @@ async function handleCartCheckout(data: any) {
   const { userId, customerInfo } = data;
 
   if (!userId) {
-    return NextResponse.json(
-      { message: "Kullanıcı ID gerekli" },
-      { status: 400 }
-    );
+    return NextResponse.json({ message: "Kullanıcı ID gerekli" }, { status: 400 });
   }
 
   await connectMongo();
@@ -158,17 +147,11 @@ async function handleCartCheckout(data: any) {
   const cart = await Cart.findOne({ userId }).populate("items.grocery");
 
   if (!cart || cart.items.length === 0) {
-    return NextResponse.json(
-      { message: "Sepet boş veya bulunamadı" },
-      { status: 404 }
-    );
+    return NextResponse.json({ message: "Sepet boş veya bulunamadı" }, { status: 404 });
   }
 
   if (!stripe) {
-    return NextResponse.json(
-      { message: "Ödeme sistemi şu anda kullanılamıyor" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: "Ödeme sistemi şu anda kullanılamıyor" }, { status: 500 });
   }
 
   // Sepetteki her ürün için stok kontrolü yap
@@ -202,8 +185,7 @@ async function handleCartCheckout(data: any) {
 
     // Ürün katalogda var mı kontrol et
     let foundProduct = stripeProducts.find(
-      (product: any) =>
-        product.metadata.product_id === item.grocery._id.toString()
+      (product: any) => product.metadata.product_id === item.grocery._id.toString()
     );
 
     // Eğer katalogda yoksa ürünü kataloga ekle
@@ -232,8 +214,8 @@ async function handleCartCheckout(data: any) {
   const session = await stripe.checkout.sessions.create({
     line_items: lineItems,
     mode: "payment",
-    success_url: "http://localhost:3000" + "/success?userId=" + userId,
-    cancel_url: "http://localhost:3000" + "/cancel?userId=" + userId,
+    success_url: "http://localhost:3001" + "/success?userId=" + userId,
+    cancel_url: "http://localhost:3001" + "/cancel?userId=" + userId,
   });
 
   // Tüm sepet ürünlerini tek bir sipariş olarak oluştur
@@ -244,10 +226,7 @@ async function handleCartCheckout(data: any) {
     name: item.name,
   }));
 
-  const totalAmount = cart.items.reduce(
-    (sum: number, item: any) => sum + item.price * item.quantity,
-    0
-  );
+  const totalAmount = cart.items.reduce((sum: number, item: any) => sum + item.price * item.quantity, 0);
 
   const order = {
     items: orderItems,
@@ -270,10 +249,7 @@ async function handleCartCheckout(data: any) {
   }
 
   // Sepeti temizle
-  await Cart.findOneAndUpdate(
-    { userId },
-    { $set: { items: [], totalAmount: 0 } }
-  );
+  await Cart.findOneAndUpdate({ userId }, { $set: { items: [], totalAmount: 0 } });
 
   // Kullanıcıyı oluştuturulan linke yönlendir
   return NextResponse.json({ url: session.url });
