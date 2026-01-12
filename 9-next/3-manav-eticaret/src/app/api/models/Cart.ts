@@ -30,17 +30,6 @@ const cartSchema = new Schema<ICart>({
   totalAmount: { type: Number, default: 0 },
 });
 
-// Sepet toplam tutarını hesapla
-cartSchema.pre("save", function (next: any) {
-  const items = this.items || [];
-
-  this.totalAmount = items.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
-
-  next();
-});
-
 const Cart = mongoose.models.Cart || mongoose.model<ICart>("Cart", cartSchema);
 
 export default Cart;

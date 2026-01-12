@@ -15,7 +15,7 @@ const Hero: FC = () => {
         </button>
       </div>
 
-      <div className="flex flex-col justify-between p-6 rounded-lg bg-linear-to-r from-orange-600 to-orange-700 max-md:hidden">
+      <div className="flex flex-col justify-between p-6 rounded-lg bg-linear-to-r from-orange-600 to-orange-700 max-lg:hidden">
         <h1 className="text-2xl font-bold">
           Taze Manav Ürünleri
           <br /> Kapınıza Kadar

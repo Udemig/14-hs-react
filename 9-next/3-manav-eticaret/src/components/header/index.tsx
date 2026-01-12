@@ -11,7 +11,7 @@ const Header: FC = async () => {
   const { cart } = await getBasket();
 
   // toplam ürün sayısını hesapla
-  const totalAmount = cart.items.reduce<number>((acc, item) => acc + item.quantity, 0);
+  const totalAmount = cart?.items?.reduce<number>((acc, item) => acc + item.quantity, 0);
 
   return (
     <header className="stick top-0 z-10 bg-white flex justify-between items-center py-5 px-7 lg:py-6 lg:px-10 shadow-sm">

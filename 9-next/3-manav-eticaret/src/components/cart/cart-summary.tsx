@@ -8,7 +8,7 @@ interface Props {
 }
 
 const CartSummary: FC<Props> = ({ cart }) => {
-  const total = cart.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const total = cart?.items?.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <div className="bg-white rounded-lg shadow overflow-hidden p-6 sticky mt-4">
