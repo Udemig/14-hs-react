@@ -22,10 +22,10 @@ const SalesChart = async () => {
   };
 
   return (
-    <div className="bg-white rounded-lg p-5 shadow-md size-full pb-16">
+    <div className="bg-white rounded-lg p-5 shadow-md size-full lg:pb-16">
       <h2 className="subtitle">Satış Grafiği</h2>
 
-      <div className="w-full pt-5">
+      <div className="size-full pt-5">
         <LineGraph data={data} />
       </div>
     </div>

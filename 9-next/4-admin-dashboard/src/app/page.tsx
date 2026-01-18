@@ -35,18 +35,18 @@ const Home: FC = () => {
     <div className="page">
       <h1 className="title">Admin Paneli</h1>
 
-      <section className="grid lg:grid-2 gap-5 my-10">
+      <section className="grid lg:grid-cols-2 gap-5 my-10">
         {cards.map((i, key) => (
           <Card item={i} key={key} />
         ))}
       </section>
 
-      <section className="grid lg:grid-cols-14 gap-5 my-10">
-        <div className="lg:col-span-9">
+      <section className="grid lg:grid-cols-14 gap-5 my-10 ">
+        <div className="lg:col-span-9 size-full overflow-hidden">
           <SalesChart />
         </div>
 
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-5 size-full overflow-hidden">
           <CategoryChart />
         </div>
       </section>

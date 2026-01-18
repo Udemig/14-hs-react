@@ -33,9 +33,24 @@ export interface GraphData {
     label: string;
     data: number[];
     borderColor: string;
-    backgroundColor: string;
-    fill: boolean;
-    tension: number;
-    borderDash: [number, number]; // tuple
+    backgroundColor: string | string[];
+    fill?: boolean;
+    tension?: number;
+    borderDash?: [number, number]; // tuple
+    borderWidth?: number;
+    hoverOffset?: number;
   }[];
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  brand: string;
+  price: number;
+  stock: number;
+  rating: number;
+  reviews_count: number;
+  category: string;
+  image_url: string;
+  description: string;
 }

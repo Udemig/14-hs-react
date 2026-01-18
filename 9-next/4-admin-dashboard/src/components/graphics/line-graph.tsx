@@ -17,6 +17,7 @@ const LineGraph: FC<Props> = ({ data }) => {
         plugins: { legend: { display: false } },
         responsive: true,
       }}
+      style={{ width: "100%", height: "100%" }}
     />
   );
 };

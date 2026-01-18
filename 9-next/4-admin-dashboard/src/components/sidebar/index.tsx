@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`flex flex-col gap-5 border-r border-zinc-300 transition-all duration-200 shadow-lg bg-white text-gray-500 ${
+      className={`flex flex-col gap-5 border-r border-zinc-300 transition-all duration-200 shadow-lg bg-white text-gray-500  ${
         isOpen ? "min-w-37.5" : "min-w-15"
       }`}
     >

@@ -20,7 +20,7 @@
       "stock": 40,
       "description": "Industry-leading noise cancellation, 30 hours battery life.",
       "image_url": "https://picsum.photos/seed/3/500/500",
-      "rating": 4.9,
+      "rating": 2.9,
       "reviews_count": 120,
       "brand": "Sony"
     },
@@ -32,7 +32,7 @@
       "stock": 53,
       "description": "Breathable mesh upper, Max Air unit for responsive cushioning.",
       "image_url": "https://picsum.photos/seed/4/500/500",
-      "rating": 4.7,
+      "rating": 1.7,
       "reviews_count": 210,
       "brand": "Adidas"
     },
@@ -109,7 +109,7 @@
       "reviews_count": 40
     },
     {
-      "id": "0fdb",
+      "id": "0fdb12312",
       "name": "Rolex Sybmariner",
       "brand": "Rolex",
       "price": 9877007,

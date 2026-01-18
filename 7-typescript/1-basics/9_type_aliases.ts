@@ -71,6 +71,7 @@ let users2: User[] = [user1, user2, user3, user4];
 // E-Ticaret sitei için örnek
 type Product = {
   id: number;
+
   name: string;
   price: number;
   category: string;
