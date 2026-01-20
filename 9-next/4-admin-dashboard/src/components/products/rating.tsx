@@ -19,7 +19,7 @@ const Rating: FC<Props> = ({ value }) => {
 
         // yarım yıldız
         if (key === full && hasHalf) {
-          return <FaStarHalfAlt className="size-5 fill-yellow-500" />;
+          return <FaStarHalfAlt key={key} className="size-5 fill-yellow-500" />;
         }
 
         // boş yıldız

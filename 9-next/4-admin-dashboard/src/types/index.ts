@@ -54,3 +54,24 @@ export interface Product {
   image_url: string;
   description: string;
 }
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  address: {
+    street: string;
+    city: string;
+    postal_code: string;
+    country: string;
+  };
+  phone: string;
+  orders: {
+    order_id: number;
+    product_id: number;
+    quantity: number;
+    total_price: number;
+    order_date: string;
+  }[];
+}

@@ -1,12 +1,10 @@
-import Card from "@/components/products/card";
-import { getProducts } from "@/utils/service";
+import List from "@/components/products/list";
 import Link from "next/link";
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { BiPlus } from "react-icons/bi";
+import Loading from "../loading";
 
 const Page: FC = async () => {
-  const products = await getProducts();
-
   return (
     <div className="page">
       <div className="max-w-7xl mx-auto">
@@ -27,11 +25,9 @@ const Page: FC = async () => {
         </div>
 
         {/* Ürün Listesi */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <Card key={product.id} product={product} />
-          ))}
-        </div>
+        <Suspense fallback={<Loading styles="my-40" />}>
+          <List />
+        </Suspense>
       </div>
     </div>
   );

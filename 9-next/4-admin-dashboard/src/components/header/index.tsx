@@ -15,7 +15,7 @@ const Header = () => {
           <Image src={avatar} alt="avatar" width={50} height={50} className="rounded-full size-12" />
 
           <div>
-            <p className="font-semibold text-black text-nowrap">Furkan Evin</p>
+            <p className="font-semibold text-black line-clamp-1">Furkan Evin</p>
             <p className="text-sm text-zinc-500">Admin</p>
           </div>
         </div>

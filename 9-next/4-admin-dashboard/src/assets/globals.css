@@ -16,6 +16,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* Scrollbar gidip gelince oluşan sayfa kaymalarını engeller */
+  margin-right: calc(100% - 100vw);
+  overflow-x: hidden;
 }
 
 @layer components {
@@ -41,5 +44,15 @@ body {
 
   .input {
     @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500! sm:text-sm p-2 border;
+  }
+}
+
+@layer base {
+  th {
+    @apply py-3.75 px-5 whitespace-nowrap;
+  }
+
+  td {
+    @apply p-[20px] text-center border-b border-zinc-300;
   }
 }

@@ -119,6 +119,30 @@
       "category": "Clothing",
       "image_url": "https://media.rolex.com/image/upload/q_auto:eco/f_auto/t_v7-majesty/c_limit,w_1920/v1/catalogue/2025/upright-c/m126613ln-0002.jpg",
       "description": "Rolex Submariner'ın ikinci el fiyatları 6.500 Euro'nun biraz altından başlayarak 100.000 Euro'nun üstüne kadar çıkmaktadır. Modellerin fiyatları, model.."
+    },
+    {
+      "id": "3e5e",
+      "name": "Nike Airmax v9",
+      "brand": "Nike",
+      "price": 3450,
+      "stock": 32,
+      "rating": 3,
+      "reviews_count": 34,
+      "category": "Shoes",
+      "image_url": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSiOn0SzWEG0zbSHcbxIa35fJZT8xEVN9yp4hFOm8e_NHcGcxYsTomfx78L9SkDFkOiGt_E7MX_Mgcr_EfCkh05wBy7uarCeq3SeFZaRt_f3zkaLtSZDr59bJ4",
+      "description": "ayakkabı"
+    },
+    {
+      "id": "e1dc",
+      "name": "Samsung Galaxy S28+",
+      "brand": "Samsung",
+      "price": 23,
+      "stock": 23,
+      "rating": 3,
+      "reviews_count": 23,
+      "category": "Electronics",
+      "image_url": "https://m.media-amazon.com/images/I/719C6bJv8jL.jpg",
+      "description": "dfsdsfsdsf"
     }
   ],
   "users": [
@@ -236,7 +260,7 @@
       "order_id": 1001,
       "user_id": 1,
       "order_date": "2024-09-10",
-      "status": "Shipped",
+      "status": "Teslim Edildi",
       "total_price": 1299.99,
       "shipping_address": {
         "street": "Atatürk Cad. No: 15",
@@ -258,7 +282,7 @@
       "order_id": 1002,
       "user_id": 1,
       "order_date": "2024-09-15",
-      "status": "Delivered",
+      "status": "Teslim Edildi",
       "total_price": 299.98,
       "shipping_address": {
         "street": "Atatürk Cad. No: 15",
@@ -280,7 +304,7 @@
       "order_id": 1003,
       "user_id": 2,
       "order_date": "2024-09-22",
-      "status": "Processing",
+      "status": "Kargoya Verildi",
       "total_price": 349.99,
       "shipping_address": {
         "street": "İstiklal Mah. 123. Sok. No: 45",
@@ -308,7 +332,7 @@
       "order_id": 1004,
       "user_id": 4,
       "order_date": "2024-10-01",
-      "status": "Delivered",
+      "status": "Hazırlanıyor",
       "total_price": 180,
       "shipping_address": {
         "street": "Kordonboyu Mah. Sahil Yolu Cad. No: 22",
